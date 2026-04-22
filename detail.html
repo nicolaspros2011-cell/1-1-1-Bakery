@@ -1,0 +1,714 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-1-1 Bakery | Menu - Cozy Moments</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="detail.css">
+
+ <link rel="icon" type="image/png" href="images/lss.png">
+
+</head>
+<body>
+<!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="3 minute Timer Coffee _ 3 minute Timer with Jazz Music _ 4K.mp3" type="audio/mpeg">
+    </audio>
+    <!-- MODERN MUSIC PLAYER POPUP -->
+    <div class="music-player-popup" id="musicPopup">
+        <div class="music-toggle" id="musicToggle">
+            <div class="music-icon-container">
+                <i class="fas fa-headphones"></i>
+                <i class="fas fa-music music-note"></i>
+            </div>
+            <span class="toggle-text">Music</span>
+            <i class="fas fa-chevron-up expand-icon"></i>
+        </div>
+        
+        <div class="music-player-content" id="musicContent">
+            <div class="player-header">
+                <div class="player-wave">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <h4>Bakery Jazz Comfort</h4>
+                <p>1-1-1 Bakery Official</p>
+            </div>
+            
+            <div class="player-controls">
+                <button id="playPauseMusicBtn" class="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="25">
+                </div>
+            </div>
+            
+            <div class="music-status" id="musicStatus">
+                <span class="status-text">🎵 Ready to play</span>
+            </div>
+            
+            <button id="closeMusicBtn" class="close-music-btn">
+                <i class="fas fa-times"></i> Collapse
+            </button>
+        </div>
+    </div>
+    <script>
+        // MUSIC PLAYER POPUP SCRIPT
+        const musicPopup = document.getElementById('musicPopup');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicContent = document.getElementById('musicContent');
+        const playPauseBtn = document.getElementById('playPauseMusicBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const musicStatus = document.getElementById('musicStatus');
+        const closeBtn = document.getElementById('closeMusicBtn');
+        
+        const bgMusic = document.getElementById('bgMusic');
+        
+        let isExpanded = false;
+        let isMusicPlaying = false;
+        
+        bgMusic.volume = 0.25;
+        bgMusic.loop = true;
+        
+        // Toggle popup expand/collapse
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                musicPopup.classList.add('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-up');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-down');
+            } else {
+                musicPopup.classList.remove('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+            }
+        });
+        
+        // Play/Pause music
+        playPauseBtn.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                musicStatus.innerHTML = '<span class="status-text">⏸️ Music paused</span>';
+                isMusicPlaying = false;
+                musicToggle.classList.remove('playing');
+            } else {
+                bgMusic.play().catch(e => {
+                    musicStatus.innerHTML = '<span class="status-text">⚠️ Click anywhere first to enable audio</span>';
+                });
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                musicStatus.innerHTML = '<span class="status-text">🎧 Now playing: Jazz Music</span>';
+                isMusicPlaying = true;
+                musicToggle.classList.add('playing');
+            }
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = e.target.value / 100;
+            bgMusic.volume = volume;
+            if (volume === 0) {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-mute';
+            } else if (volume < 0.5) {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-down';
+            } else {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-up';
+            }
+        });
+        
+        // Close / Collapse button
+        closeBtn.addEventListener('click', () => {
+            isExpanded = false;
+            musicPopup.classList.remove('expanded');
+            musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+            musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+        });
+        
+        // Auto hint on first visit
+        setTimeout(() => {
+            if (!localStorage.getItem('musicHintShown')) {
+                isExpanded = true;
+                musicPopup.classList.add('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-up');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-down');
+                localStorage.setItem('musicHintShown', 'true');
+                setTimeout(() => {
+                    if (isExpanded) {
+                        isExpanded = false;
+                        musicPopup.classList.remove('expanded');
+                        musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+                        musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+                    }
+                }, 4000);
+            }
+        }, 1000);
+    </script>
+
+
+<!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-circle">
+                <img src="images/logo.png" alt="Logo Bakery">
+            </div>
+            <div class="logo-text">
+                <h1>1-1-1 Bakery</h1>
+                <p>premium · artisan · comfort</p>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="detail.html" class="active">Detail</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="owner.html">Owner</a></li>
+        </ul>
+    </nav>
+
+
+<!-- Hero Section Gallery -->
+<section class="hero-gallery">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Detail Menu</Menu></h1>
+        <p class="tagline">Kumpulan momen hangat dari 1-1-1 Cafe</p>
+        <div class="hero-divider"></div>
+        <a href="#gallery-grid" class="btn-primary">Lihat Foto →</a>
+    </div>
+</section>
+
+
+<!-- Gallery Filter (PURE CSS) -->
+<section class="gallery-filter">
+    <div class="container">
+        <h2 class="section-title">Jelajahi Galeri</h2>
+    </div>
+</section>
+
+
+<!-- Gallery Grid (PURE CSS Filter) -->
+<section class="gallery-grid-section" id="gallery-grid">
+    <div class="container">
+        <!-- FOOD (14 items) -->
+        <div class="gallery-item food" data-category="food">
+            <a href="#img1" class="gallery-link modal-trigger" data-modal="img1">
+                <img src="images/saltbread.jpg" alt="Salt Bread">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Salt Bread</h3>
+                        <p>Roti gurih populer asal jepang, yang biasa dikenal sebagai shiopan. bercirikhas tekstur crunchy diluiar dan lembut didalam. Berbentuk gulunganm seperti croisant namun menggunakan campuran mentega didalamnya dan sea sealt di atasnya.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img2" class="gallery-link modal-trigger" data-modal="img2">
+                <img src="images/coffeebun.jpg" alt="Coffee Bun">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Coffee Bun</h3>
+                        <p>Coffee bun adalah roti manis lembut dengan isian mentega asin dan topping renyah beraroma kopi yang khas, roti ini populer karena aroma kopi yang wangi dan tekstur kombinasi krispi-lembut. Umumnya menggunakan ragi, mentega, telur, dan kopi</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img3" class="gallery-link modal-trigger" data-modal="img3">
+                <img src="images/croissant.jpg" alt="croisant">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Croissant</h3>
+                        <p>Croissant adalah kue kering Prancis yang renyah dan bermentega, dinamai berdasarkan bentuknya yang seperti bulan sabit, dengan adonan ragi berlapis-lapis. Croissant merupakan makanan sarapan populer yang sering disajikan dengan kopi, menawarkan bagian luar yang renyah dan bagian dalam yang lembut.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img4" class="gallery-link modal-trigger" data-modal="img4">
+                <img src="images/cookie-chocolatechip.jpg" alt="cookies">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cookies</h3>
+                        <p>Kue kering adalah camilan kecil yang dipanggang, biasanya terbuat dari tepung, gula, dan lemak. Kue kering menawarkan berbagai macam tekstur dari lembut dan kenyal hingga renyah. Dengan berbagai variasi rasa seperti oreo,lotus,smores,choclate chip,dan mactha</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<div class="gallery-item food" data-category="food">
+            <a href="#img4" class="gallery-link modal-trigger" data-modal="img4">
+                <img src="images/cookie-lotus.jpg" alt="cookies">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cookies</h3>
+                        <p>Kue kering adalah camilan kecil yang dipanggang, biasanya terbuat dari tepung, gula, dan lemak. Kue kering menawarkan berbagai macam tekstur dari lembut dan kenyal hingga renyah. Dengan berbagai variasi rasa seperti oreo,lotus,smores,choclate chip,dan mactha</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<div class="gallery-item food" data-category="food">
+            <a href="#img4" class="gallery-link modal-trigger" data-modal="img4">
+                <img src="images/cookie-matcha.jpg" alt="cookies">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cookies</h3>
+                        <p>Kue kering adalah camilan kecil yang dipanggang, biasanya terbuat dari tepung, gula, dan lemak. Kue kering menawarkan berbagai macam tekstur dari lembut dan kenyal hingga renyah. Dengan berbagai variasi rasa seperti oreo,lotus,smores,choclate chip,dan mactha</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<div class="gallery-item food" data-category="food">
+            <a href="#img4" class="gallery-link modal-trigger" data-modal="img4">
+                <img src="images/cookie-oreo.jpg" alt="cookies">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cookies</h3>
+                        <p>Kue kering adalah camilan kecil yang dipanggang, biasanya terbuat dari tepung, gula, dan lemak. Kue kering menawarkan berbagai macam tekstur dari lembut dan kenyal hingga renyah. Dengan berbagai variasi rasa seperti oreo,lotus,smores,choclate chip,dan mactha</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<div class="gallery-item food" data-category="food">
+            <a href="#img4" class="gallery-link modal-trigger" data-modal="img4">
+                <img src="images/cookie-smores.jpg" alt="cookies">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cookies</h3>
+                        <p>Kue kering adalah camilan kecil yang dipanggang, biasanya terbuat dari tepung, gula, dan lemak. Kue kering menawarkan berbagai macam tekstur dari lembut dan kenyal hingga renyah. Dengan berbagai variasi rasa seperti oreo,lotus,smores,choclate chip,dan mactha</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img5" class="gallery-link modal-trigger" data-modal="img5">
+                <img src="images/brownies.jpg" alt="Brownies">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Brownies</h3>
+                        <p>Brownies adalah kue cokelat padat bertekstur lembap atau kenyal, berbentuk persegi/bar, yang berasal dari Amerika Serikat pada akhir abad ke-19. Kue ini populer dengan rasa cokelat intens, umumnya dipanggang (oven) atau dikukus, menggunakan bahan dasar tepung, cokelat, telur, gula, dan lemak. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img6" class="gallery-link modal-trigger" data-modal="img6">
+                <img src="images/cinnamonroll.jpg" alt="Cinnamon Rolls">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cinnamon Rolls</h3>
+                        <p>Cinnamon rolls adalah roti gulung manis populer yang berasal dari Eropa Utara (terutama Swedia) dan Amerika Utara, ditandai dengan aroma kayu manis yang kuat, tekstur lembut, serta bentuk spiral. Roti ini dibuat dari adonan ragi yang dipipihkan, diolesi mentega, ditaburi campuran kayu manis dan brown sugar, lalu digulung dan dipanggang.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img7" class="gallery-link modal-trigger" data-modal="img7">
+                <img src="images/croffle.jpg" alt="Croffle">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Crofefle</h3>
+                        <p>Croffle adalah kudapan kekinian perpaduan croissant dan waffle. Adonan croissant berlapis dipanggang menggunakan cetakan waffle (waffle maker), menghasilkan tekstur renyah di luar, beraroma mentega, dan lembut di dalam. Umumnya disajikan dengan berbagai topping seperti cokelat, matcha, atau selai buah. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img8" class="gallery-link modal-trigger" data-modal="img8">
+                <img src="cupcake-lemon.jpg" alt="Cupcake">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cupcake</h3>
+                        <p>Cupcake adalah kue kecil berukuran satu porsi yang dipanggang dalam cetakan cangkir (kertas atau aluminium), memiliki tekstur lembut, rasa manis, dan umumnya diberi frosting atau hiasan di atasnya. Berbeda dengan muffin yang lebih padat dan sering tanpa topping, cupcake adalah butter cake mini yang didekorasi untuk makanan penutup. Dengan berbagai macam topping dari oreo,Lotus,Matcha,dan Lemon. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<div class="gallery-item food" data-category="food">
+            <a href="#img8" class="gallery-link modal-trigger" data-modal="img8">
+                <img src="cupcake-lemon.jpg" alt="Cupcake">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cupcake</h3>
+                        <p>Cupcake adalah kue kecil berukuran satu porsi yang dipanggang dalam cetakan cangkir (kertas atau aluminium), memiliki tekstur lembut, rasa manis, dan umumnya diberi frosting atau hiasan di atasnya. Berbeda dengan muffin yang lebih padat dan sering tanpa topping, cupcake adalah butter cake mini yang didekorasi untuk makanan penutup. Dengan berbagai macam topping dari oreo,Lotus,Matcha,dan Lemon. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="gallery-item food" data-category="food">
+            <a href="#img8" class="gallery-link modal-trigger" data-modal="img8">
+                <img src="images/cupcake-lotus.jpg" alt="Cupcake">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cupcake</h3>
+                        <p>Cupcake adalah kue kecil berukuran satu porsi yang dipanggang dalam cetakan cangkir (kertas atau aluminium), memiliki tekstur lembut, rasa manis, dan umumnya diberi frosting atau hiasan di atasnya. Berbeda dengan muffin yang lebih padat dan sering tanpa topping, cupcake adalah butter cake mini yang didekorasi untuk makanan penutup. Dengan berbagai macam topping dari oreo,Lotus,Matcha,dan Lemon. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="gallery-item food" data-category="food">
+            <a href="#img8" class="gallery-link modal-trigger" data-modal="img8">
+                <img src="images/cupcake-matcha.jpg" alt="Cupcake">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cupcake</h3>
+                        <p>Cupcake adalah kue kecil berukuran satu porsi yang dipanggang dalam cetakan cangkir (kertas atau aluminium), memiliki tekstur lembut, rasa manis, dan umumnya diberi frosting atau hiasan di atasnya. Berbeda dengan muffin yang lebih padat dan sering tanpa topping, cupcake adalah butter cake mini yang didekorasi untuk makanan penutup. Dengan berbagai macam topping dari oreo,Lotus,Matcha,dan Lemon. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<div class="gallery-item food" data-category="food">
+            <a href="#img8" class="gallery-link modal-trigger" data-modal="img8">
+                <img src="images/cupcake-oreo.jpg" alt="Cupcake">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Cupcake</h3>
+                        <p>Cupcake adalah kue kecil berukuran satu porsi yang dipanggang dalam cetakan cangkir (kertas atau aluminium), memiliki tekstur lembut, rasa manis, dan umumnya diberi frosting atau hiasan di atasnya. Berbeda dengan muffin yang lebih padat dan sering tanpa topping, cupcake adalah butter cake mini yang didekorasi untuk makanan penutup. Dengan berbagai macam topping dari oreo,Lotus,Matcha,dan Lemon. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="gallery-item food" data-category="food">
+            <a href="#img9" class="gallery-link modal-trigger" data-modal="img9">
+                <img src="images/tiramisu.jpg" alt="Tiramisu">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Tiramisu</h3>
+                        <p>Tiramisu adalah hidangan penutup (dessert) populer khas Italia yang berbahan dasar biskuit ladyfingers (savoiardi) yang dicelupkan ke dalam kopi, lalu dilapisi krim keju mascarpone, telur, gula, dan ditaburi cokelat bubuk. Kue ini tidak dipanggang, melainkan didinginkan di kulkas, memberikan tekstur lembut, creamy, dan rasa kopi yang kuat.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img10" class="gallery-link modal-trigger" data-modal="img10">
+                <img src="images/pretzels.jpg" alt="Pretzel">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Pretzel</h3>
+                        <p>Pretzel adalah roti atau biskuit khas Jerman/Eropa yang berbentuk simpul unik, dengan tekstur renyah di luar dan lembut di dalam. Biasanya berwarna coklat keemasan, rasanya gurih karena ditaburi garam kasar, namun ada juga variasi manis. Pretzel dibuat dari tepung, ragi, dan direndam air soda sebelum dipanggang.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img11" class="gallery-link modal-trigger" data-modal="img11">
+                <img src="images/churros.jpg" alt="Churros">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Churros</h3>
+                        <p>Churros adalah camilan manis khas Spanyol dan Portugal berbentuk stik bergerigi, terbuat dari adonan choux pastry yang digoreng hingga garing di luar namun lembut di dalam. Umumnya, churros disajikan dengan taburan gula kayu manis dan saus celup cokelat, menjadikannya salah satu ikon kuliner populer yang dinikmati global. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img13" class="gallery-link modal-trigger" data-modal="img13">
+                <img src="muffins.jpg" alt="Muffins">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Muffins</h3>
+                        <p>Muffin adalah jenis kue panggang berukuran kecil (individual) yang sering dikategorikan sebagai quick bread atau roti cepat saji karena pembuatannya tidak menggunakan ragi, melainkan baking powder atau baking soda. Muffin umumnya memiliki tekstur yang padat, lembap, dan rasanya cenderung tidak terlalu manis, menjadikannya camilan populer untuk sarapan atau pendamping kopi/teh. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item food" data-category="food">
+            <a href="#img14" class="gallery-link modal-trigger" data-modal="img14">
+                <img src="matcha.jpg" alt="Matcha latte">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Matcha Latte</h3>
+                        <p>Matcha latte adalah minuman populer kombinasi bubuk mactha/Teh hijau berkualitas Ceremonial Grade yang dilarutkan dalam air panas, kemudian dicampur dengan susu (sapi/nabati) yang bertekstur creamy. Minuman ini menawarkan rasa teh yang pekat, sedikit pahit khas matcha, dan lembut karena susu. Dapat disajikan panas atau dingin. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- DRINK (10 items) -->
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img15" class="gallery-link modal-trigger" data-modal="img15">
+                <img src="americano.jpg" alt="Americano">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Americano</h3>
+                        <p>Americano adalah minuman kopi yang dibuat dengan mencampurkan satu atau dua shot espresso dengan air panas, menghasilkan kopi hitam dengan rasa yang lebih ringan daripada espresso murni namun tetap kuat. Umumnya menggunakan rasio 1:1 hingga 1:3 (espresso:air), minuman ini berawal dari tentara Amerika di Italia yang mengencerkan espresso pekat agar sesuai selera mereka. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img16" class="gallery-link modal-trigger" data-modal="img16">
+                <img src="espresso.jpg" alt="Espresso">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Espresso</h3>
+                        <p>Espresso adalah minuman kopi pekat yang dihasilkan dengan menyemburkan air panas bertekanan tinggi (sekitar 9 bar) melalui bubuk kopi halus. Berasal dari Italia, espresso ditandai dengan tekstur kental, rasa intens, dan crema (busa keemasan) di atasnya. Ini merupakan dasar dari berbagai minuman kopi seperti latte, cappuccino, dan americano. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img17" class="gallery-link modal-trigger" data-modal="img17">
+                <img src="mocha.jpg" alt="Mocha Frapuccino">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Mocha Frappucino</h3>
+                        <p>Mocha Frappuccino adalah minuman kopi dingin khas Starbucks yang diblender dengan es, terdiri dari campuran saus moka (cokelat), kopi roast, susu, dan es batu hingga bertekstur halus dan kental. Minuman ini memiliki cita rasa manis cokelat yang kuat dengan sentuhan kopi yang creamy, serta umumnya disajikan dengan whipped cream di atasnya. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img18" class="gallery-link modal-trigger" data-modal="img18">
+                <img src="cappuccino.jpg" alt="cappuccino">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>cappuccino</h3>
+                        <p>Cappuccino adalah minuman kopi khas Italia yang terdiri dari kombinasi seimbang 1/3 espresso, 1/3 susu panas (steamed milk), dan 1/3 busa susu (milk foam) tebal. Minuman ini dikenal dengan rasa kopi yang kuat, creamy, serta lapisan foam lembut di atasnya, seringkali disajikan dalam cangkir kecil dan ditaburi bubuk cokelat atau kayu manis.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img19" class="gallery-link modal-trigger" data-modal="img19">
+                <img src="hotchoco.jpg" alt="Hot Choclate">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Hot Choclate</h3>
+                        <p>Hot chocolate (cokelat panas) adalah minuman hangat yang dibuat dari cokelat leleh atau bubuk kakao, susu, dan pemanis. Minuman ini kaya rasa, sering disajikan dengan krim atau marshmallow, dan populer untuk menenangkan diri. Selain enak, cokelat panas kaya antioksidan, meningkatkan suasana hati, serta menjaga kesehatan jantung. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img20" class="gallery-link modal-trigger" data-modal="img20">
+                <img src="caramel.jpg" alt="Caramel Machiato">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Caramel Machiato</h3>
+                        <p>Caramel macchiato adalah minuman kopi berbasis espresso yang terdiri dari campuran susu cair, sirup vanila, dan saus karamel. Karakteristik utamanya adalah tekstur creamy dengan rasa manis-pahit yang seimbang, sering disajikan berlapis dengan foam susu tebal dan sirup karamel di atasnya.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+<div class="gallery-item [kategori]" data-category="drink">
+    <a href="#img21" class="gallery-link modal-trigger" data-modal="img21">
+        <!-- 1. FOTO -->
+        <img src="milktea.jpg" alt="Milk Tea">
+       
+        <div class="chocolate-frame">
+            <div class="frame-inner"></div>
+        </div>
+       
+        <div class="gallery-overlay">
+            <div class="gallery-info">
+                <h3>Milk Tea</h3>
+                <p>Milk tea (teh susu) adalah minuman populer yang terdiri dari campuran teh dan susu, disajikan panas atau dingin dengan pemanis seperti gula atau madu. Minuman ini memiliki rasa lembut, manis, dan creamy. Variasi milk tea mencakup teh tarik, bubble tea, hingga teh susu tradisional dari berbagai negara Asia dan Eropa. </p>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+<div class="gallery-item [kategori]" data-category="drink">
+    <a href="#img22" class="gallery-link modal-trigger" data-modal="img22">
+        <!-- 1. FOTO -->
+        <img src="milkshake-chocolate.jpg" alt="Milk Shake">
+       
+        <div class="chocolate-frame">
+            <div class="frame-inner"></div></div>
+       
+        <div class="gallery-overlay">
+            <div class="gallery-info">
+                <h3>Milk Shake</h3>
+                <p>Milkshake adalah minuman dingin manis yang dibuat dengan mencampurkan susu, es krim, dan sirup perasa, lalu dikocok atau diblender hingga kental, berbusa, dan creamy. Menjadikannya camilan menyegarkan yang populer dengan berbagai macam rasa Seperti mint choclate,choclate, strawberry, dan vaniila. </p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="gallery-item [kategori]" data-category="drink">
+    <a href="#img23" class="gallery-link modal-trigger" data-modal="img23">
+        <!-- 1. FOTO -->
+        <img src="milkshake-mint.jpg" alt="Milk Shake">
+       
+        <div class="chocolate-frame">
+            <div class="frame-inner"></div></div>
+       
+        <div class="gallery-overlay">
+            <div class="gallery-info">
+                <h3>Milk Shake</h3>
+                <p>Milkshake adalah minuman dingin manis yang dibuat dengan mencampurkan susu, es krim, dan sirup perasa, lalu dikocok atau diblender hingga kental, berbusa, dan creamy. Menjadikannya camilan menyegarkan yang populer dengan berbagai macam rasa Seperti mint choclate,choclate, strawberry, dan vaniila. </p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="gallery-item [kategori]" data-category="drink">
+    <a href="#img24" class="gallery-link modal-trigger" data-modal="img24">
+        <!-- 1. FOTO -->
+        <img src="milkshake-strawberry.jpg" alt="Milk Shake">
+       
+        <div class="chocolate-frame">
+            <div class="frame-inner"></div></div>
+       
+        <div class="gallery-overlay">
+            <div class="gallery-info">
+                <h3>Milk Shake</h3>
+                <p>Milkshake adalah minuman dingin manis yang dibuat dengan mencampurkan susu, es krim, dan sirup perasa, lalu dikocok atau diblender hingga kental, berbusa, dan creamy. Menjadikannya camilan menyegarkan yang populer dengan berbagai macam rasa Seperti mint choclate,choclate, strawberry, dan vaniila. </p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="gallery-item [kategori]" data-category="drink">
+    <a href="#img25" class="gallery-link modal-trigger" data-modal="img25">
+        <!-- 1. FOTO -->
+        <img src="milkshake-vanilla.jpg" alt="Milk Shake">
+       
+        <div class="chocolate-frame">
+            <div class="frame-inner"></div></div>
+       
+        <div class="gallery-overlay">
+            <div class="gallery-info">
+                <h3>Milk Shake</h3>
+                <p>Milkshake adalah minuman dingin manis yang dibuat dengan mencampurkan susu, es krim, dan sirup perasa, lalu dikocok atau diblender hingga kental, berbusa, dan creamy. Menjadikannya camilan menyegarkan yang populer dengan berbagai macam rasa Seperti mint choclate,choclate, strawberry, dan vaniila. </p>
+            </div>
+        </div>
+    </a>
+</div>
+        <div class="gallery-item drink" data-category="drink">
+            <a href="#img26" class="gallery-link modal-trigger" data-modal="img26">
+                <img src="air-mineral.jpg" alt="Air Mineral">
+                <div class="chocolate-frame">
+                    <div class="frame-inner"></div></div>
+                    <div class="gallery-overlay">
+                    <div class="gallery-info">
+                <h3>Air Mineral</h3>
+                <p>Air mineral adalah air minum yang berasal dari sumber alami (mata air pegunungan/aquifer) yang mengandung mineral dan elemen penting alami, seperti kalsium, magnesium, dan natrium, yang bermanfaat bagi tubuh. Berbeda dengan air putih biasa, air mineral tidak mengalami pemurnian intensif guna menjaga kandungan mineral alaminya.</p>
+            </div>
+        </div>
+    </a>
+</div>

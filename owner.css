@@ -1,0 +1,496 @@
+/* Variabel Warna */
+:root {
+    --warm-brown: #5d4037;
+    --wood-brown: #3e2723;
+    --soft-gold: #d4af37;
+    --beige-bg: #d2b48c; /* Cokelat Muda Cozy */
+    --card-bg: rgba(255, 255, 255, 0.4);
+    --warm-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #F9F5F0;
+    color: #2C221B;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ========== NAVBAR (Sama seperti about.css) ========== */
+.navbar {
+    background: rgba(254, 249, 244, 0.95);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px var(--warm-shadow);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDownSoft 1s cubic-bezier(0.34, 0.16, 0.25, 1);
+}
+
+@keyframes slideDownSoft {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-circle {
+    background: linear-gradient(145deg, var(--wood-brown), var(--warm-brown));
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px var(--warm-shadow);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: softFloat 7s ease-in-out infinite;
+}
+
+@keyframes softFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.03); }
+}
+
+.logo-circle:hover {
+    transform: scale(1.08) rotate(180deg);
+}
+
+.logo-circle img {
+    width: 120%;
+    height: 120%;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--warm-brown), var(--wood-brown));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-text p {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--wood-brown);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--warm-brown);
+    position: relative;
+    padding: 10px 0;
+    transition: all 0.4s ease;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: var(--soft-gold);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+    width: 100%;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: var(--wood-brown);
+}
+
+/* ========== LAYOUT SECTION ========== */
+
+.owner-header {
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+}
+
+.owner-header h1 {
+    font-size: 3rem;
+    color: var(--wood-brown);
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* KARTU UTAMA (Container Luar) */
+.owner-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 25px;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efek Hover Card */
+.owner-card:hover {
+    transform: translateY(-12px) scale(1.01);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 45px rgba(62, 39, 35, 0.15);
+}
+
+/* Mengatur posisi balik (reverse) */
+.owner-card.reverse {
+    flex-direction: row-reverse;
+}
+
+/* CONTAINER DALAM (Khusus Foto) */
+.photo-container {
+    width: 280px;  /* Lebar tetap agar seragam */
+    height: 350px; /* Tinggi tetap agar seragam */
+    background: #ffffff;
+    padding: 15px;
+    padding-bottom: 60px; /* Ruang bawah gaya polaroid */
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Foto tetap proporsional */
+}
+
+/* Rotasi Sedikit saat Hover */
+.owner-card:hover .photo-container {
+    transform: rotate(4deg);
+}
+
+/* INFO OWNER */
+.owner-info {
+    flex: 1;
+}
+
+.owner-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: var(--wood-brown);
+}
+
+.owner-info span {
+    color: var(--soft-gold);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.owner-info p {
+    font-size: 1.15rem;
+    color: #4e342e;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 50px;
+    color: var(--wood-brown);
+    opacity: 0.6;
+}
+
+/* ========== MODERN MUSIC PLAYER POPUP ========== */
+.music-player-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Toggle Button (collapsed state) */
+.music-toggle {
+    background: linear-gradient(145deg, #3e2723, #5d4037);
+    backdrop-filter: blur(12px);
+    padding: 14px 20px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(212,176,140,0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.music-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border-color: #d4af37;
+}
+
+.music-toggle.playing {
+    background: linear-gradient(145deg, #3e2723, #5d4037);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 10px 30px rgba(212,176,140,0.3); }
+    50% { box-shadow: 0 10px 35px rgba(212,176,140,0.6); }
+}
+
+.music-icon-container {
+    position: relative;
+}
+
+.music-icon-container i {
+    font-size: 1.4rem;
+    color: #d4af37;
+}
+
+.music-note {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.toggle-text {
+    font-weight: 600;
+    color: #FFF8F0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.expand-icon {
+    color: #d4af37;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+/* Expanded Content Panel */
+.music-player-content {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 280px;
+    background: rgba(30, 20, 15, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    border: 1px solid rgba(212,176,140,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+.music-player-popup.expanded .music-player-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.music-player-popup.expanded .music-toggle {
+    background: linear-gradient(145deg, #3e2723, #5d4037);
+}
+
+/* Player Header */
+.player-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.player-wave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 1rem;
+    height: 40px;
+}
+
+.player-wave span {
+    width: 3px;
+    height: 20px;
+    background: linear-gradient(180deg, #d4af37, #D4A373);
+    border-radius: 3px;
+    animation: waveAnim 1.2s ease-in-out infinite;
+}
+
+.player-wave span:nth-child(1) { animation-delay: 0s; height: 15px; }
+.player-wave span:nth-child(2) { animation-delay: 0.2s; height: 25px; }
+.player-wave span:nth-child(3) { animation-delay: 0.4s; height: 35px; }
+.player-wave span:nth-child(4) { animation-delay: 0.6s; height: 20px; }
+
+@keyframes waveAnim {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.5); }
+}
+
+.player-header h4 {
+    color: #FFF8F0;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.player-header p {
+    color: #d4af37;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Player Controls */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.play-pause-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d4af37, #C49A6C);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(212,176,140,0.5);
+}
+
+.play-pause-btn i {
+    font-size: 1.3rem;
+    color: #2C221B;
+    margin-left: 2px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.volume-control i {
+    color: #d4af37;
+    font-size: 0.9rem;
+}
+
+.volume-control input {
+    flex: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    background: rgba(212,176,140,0.3);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-control input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d4af37;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212,176,140,0.8);
+}
+
+/* Music Status */
+.music-status {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 8px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+}
+
+.status-text {
+    font-size: 0.7rem;
+    color: #C4B4A0;
+    letter-spacing: 0.5px;
+}
+
+/* Close Button */
+.close-music-btn {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(212,176,140,0.3);
+    padding: 8px;
+    border-radius: 40px;
+    color: #d4af37;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.close-music-btn:hover {
+    background: rgba(212,176,140,0.2);
+}
+
+/* RESPONSIVE (Untuk Tampilan Mobile) */
+@media (max-width: 850px) {
+    .owner-card, .owner-card.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .photo-container {
+        width: 100%;
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1-1-1 Bakery | Contact</title>
+
+<link rel="stylesheet" href="contact.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+ <link rel="icon" type="image/png" href="images/lss.png">
+
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="YTDown.com_YouTube_10-Minute-Countdown-Timer-Cozy-Coffee-Sh_Media_ASWdTkiqeTQ_009_128k.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-circle">
+                <img src="images/logo.png" alt="Logo Bakery">
+            </div>
+            <div class="logo-text">
+                <h1>1-1-1 Bakery</h1>
+                <p>premium · artisan · comfort</p>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="detail.html">Detail</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="owner.html">Owner</a></li>
+        </ul>
+    </nav>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Let’s Talk</h1>
+        <p>Kami siap bantu, dengar, dan bikin pengalaman kamu lebih hangat.</p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+
+    <div class="contact-wrapper">
+
+        <!-- LEFT -->
+        <div class="contact-info">
+            <h2>Hubungi Kami</h2>
+            <p>Kami selalu terbuka untuk pertanyaan, kolaborasi, atau sekadar ngobrol santai ☕</p>
+
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i> Jl. Hangat No.11</div>
+            <div class="info-item"><i class="fas fa-phone"></i> 0812-3456-7890</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> hello@111cafe.com</div>
+
+            <div class="social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="contact-form">
+            <form>
+
+                <div class="field">
+                    <input type="text" required>
+                    <label>Nama</label>
+                    <span class="line"></span>
+                </div>
+
+                <div class="field">
+                    <input type="email" required>
+                    <label>Email</label>
+                    <span class="line"></span>
+                </div>
+
+                <div class="field">
+                    <textarea required></textarea>
+                    <label>Pesan</label>
+                    <span class="line"></span>
+                </div>
+
+                <button>Kirim Pesan</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2025 1-1-1 Cafe</p>
+</footer>
+
+    <!-- MODERN MUSIC PLAYER POPUP -->
+    <div class="music-player-popup" id="musicPopup">
+        <div class="music-toggle" id="musicToggle">
+            <div class="music-icon-container">
+                <i class="fas fa-headphones"></i>
+                <i class="fas fa-music music-note"></i>
+            </div>
+            <span class="toggle-text">Music</span>
+            <i class="fas fa-chevron-up expand-icon"></i>
+        </div>
+        
+        <div class="music-player-content" id="musicContent">
+            <div class="player-header">
+                <div class="player-wave">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <h4>Bakery Jazz Comfort</h4>
+                <p>1-1-1 Bakery Official</p>
+            </div>
+            
+            <div class="player-controls">
+                <button id="playPauseMusicBtn" class="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="25">
+                </div>
+            </div>
+            
+            <div class="music-status" id="musicStatus">
+                <span class="status-text">🎵 Ready to play</span>
+            </div>
+            
+            <button id="closeMusicBtn" class="close-music-btn">
+                <i class="fas fa-times"></i> Collapse
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // MUSIC PLAYER POPUP SCRIPT
+        const musicPopup = document.getElementById('musicPopup');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicContent = document.getElementById('musicContent');
+        const playPauseBtn = document.getElementById('playPauseMusicBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const musicStatus = document.getElementById('musicStatus');
+        const closeBtn = document.getElementById('closeMusicBtn');
+        
+        const bgMusic = document.getElementById('bgMusic');
+        
+        let isExpanded = false;
+        let isMusicPlaying = false;
+        
+        bgMusic.volume = 0.25;
+        bgMusic.loop = true;
+        
+        // Toggle popup expand/collapse
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                musicPopup.classList.add('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-up');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-down');
+            } else {
+                musicPopup.classList.remove('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+            }
+        });
+        
+        // Play/Pause music
+        playPauseBtn.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                musicStatus.innerHTML = '<span class="status-text">⏸️ Music paused</span>';
+                isMusicPlaying = false;
+                musicToggle.classList.remove('playing');
+            } else {
+                bgMusic.play().catch(e => {
+                    musicStatus.innerHTML = '<span class="status-text">⚠️ Click anywhere first to enable audio</span>';
+                });
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                musicStatus.innerHTML = '<span class="status-text">🎧 Now playing: Jazz Music</span>';
+                isMusicPlaying = true;
+                musicToggle.classList.add('playing');
+            }
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = e.target.value / 100;
+            bgMusic.volume = volume;
+            if (volume === 0) {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-mute';
+            } else if (volume < 0.5) {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-down';
+            } else {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-up';
+            }
+        });
+        
+        // Close / Collapse button
+        closeBtn.addEventListener('click', () => {
+            isExpanded = false;
+            musicPopup.classList.remove('expanded');
+            musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+            musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+        });
+        
+        // Auto hint on first visit
+        setTimeout(() => {
+            if (!localStorage.getItem('musicHintShown')) {
+                isExpanded = true;
+                musicPopup.classList.add('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-up');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-down');
+                localStorage.setItem('musicHintShown', 'true');
+                setTimeout(() => {
+                    if (isExpanded) {
+                        isExpanded = false;
+                        musicPopup.classList.remove('expanded');
+                        musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+                        musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+                    }
+                }, 4000);
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

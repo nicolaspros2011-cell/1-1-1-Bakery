@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-1-1 Bakery | Gallery - 4 Cozy Frames</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gallery.css">
+    <style>
+        /* CSS lengkap ada di bawah */
+    </style>
+
+ <link rel="icon" type="image/png" href="images/lss.png">
+
+</head>
+<body>
+   <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="3 minute Timer Coffee _ 3 minute Timer with Jazz Music _ 4K.mp3" type="audio/mpeg">
+    </audio>
+    <!-- MODERN MUSIC PLAYER POPUP -->
+    <div class="music-player-popup" id="musicPopup">
+        <div class="music-toggle" id="musicToggle">
+            <div class="music-icon-container">
+                <i class="fas fa-headphones"></i>
+                <i class="fas fa-music music-note"></i>
+            </div>
+            <span class="toggle-text">Music</span>
+            <i class="fas fa-chevron-up expand-icon"></i>
+        </div>
+        
+        <div class="music-player-content" id="musicContent">
+            <div class="player-header">
+                <div class="player-wave">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <h4>Bakery Jazz Comfort</h4>
+                <p>1-1-1 Bakery Official</p>
+            </div>
+            
+            <div class="player-controls">
+                <button id="playPauseMusicBtn" class="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="25">
+                </div>
+            </div>
+            
+            <div class="music-status" id="musicStatus">
+                <span class="status-text">🎵 Ready to play</span>
+            </div>
+            
+            <button id="closeMusicBtn" class="close-music-btn">
+                <i class="fas fa-times"></i> Collapse
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // MUSIC PLAYER POPUP SCRIPT
+        const musicPopup = document.getElementById('musicPopup');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicContent = document.getElementById('musicContent');
+        const playPauseBtn = document.getElementById('playPauseMusicBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const musicStatus = document.getElementById('musicStatus');
+        const closeBtn = document.getElementById('closeMusicBtn');
+        
+        const bgMusic = document.getElementById('bgMusic');
+        
+        let isExpanded = false;
+        let isMusicPlaying = false;
+        
+        bgMusic.volume = 0.25;
+        bgMusic.loop = true;
+        
+        // Toggle popup expand/collapse
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                musicPopup.classList.add('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-up');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-down');
+            } else {
+                musicPopup.classList.remove('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+            }
+        });
+        
+        // Play/Pause music
+        playPauseBtn.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                musicStatus.innerHTML = '<span class="status-text">⏸️ Music paused</span>';
+                isMusicPlaying = false;
+                musicToggle.classList.remove('playing');
+            } else {
+                bgMusic.play().catch(e => {
+                    musicStatus.innerHTML = '<span class="status-text">⚠️ Click anywhere first to enable audio</span>';
+                });
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                musicStatus.innerHTML = '<span class="status-text">🎧 Now playing: Jazz Music</span>';
+                isMusicPlaying = true;
+                musicToggle.classList.add('playing');
+            }
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = e.target.value / 100;
+            bgMusic.volume = volume;
+            if (volume === 0) {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-mute';
+            } else if (volume < 0.5) {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-down';
+            } else {
+                document.querySelector('.volume-control i').className = 'fas fa-volume-up';
+            }
+        });
+        
+        // Close / Collapse button
+        closeBtn.addEventListener('click', () => {
+            isExpanded = false;
+            musicPopup.classList.remove('expanded');
+            musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+            musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+        });
+        
+        // Auto hint on first visit
+        setTimeout(() => {
+            if (!localStorage.getItem('musicHintShown')) {
+                isExpanded = true;
+                musicPopup.classList.add('expanded');
+                musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-up');
+                musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-down');
+                localStorage.setItem('musicHintShown', 'true');
+                setTimeout(() => {
+                    if (isExpanded) {
+                        isExpanded = false;
+                        musicPopup.classList.remove('expanded');
+                        musicToggle.querySelector('.expand-icon').classList.remove('fa-chevron-down');
+                        musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
+                    }
+                }, 4000);
+            }
+        }, 1000);
+    </script>
+
+
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-circle">
+                <img src="images/logo.png" alt="Logo Bakery">
+            </div>
+            <div class="logo-text">
+                <h1>1-1-1 Bakery</h1>
+                <p>premium · artisan · comfort</p>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="detail.html">Detail</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="owner.html">Owner</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section Gallery -->
+    <section class="hero-gallery">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1><i class="fas fa-images"></i> Gallery</h1>
+            <p class="tagline">4 Momen Hangat Terbaik dari 1-1-1 Bakery</p>
+            <div class="hero-divider"></div>
+            <a href="#photo-frames" class="btn-primary">Lihat Koleksi →</a>
+        </div>
+    </section>
+
+    <!-- 4 Photo Frames Section -->
+    <section class="photo-frames-section" id="photo-frames">
+        <div class="container">
+            <h2 class="section-title">Cozy Moments</h2>
+            <div class="frames-grid">
+                
+                <!-- Frame 1 -->
+                <div class="photo-frame" data-frame="1">
+                    <a href="#frame1" class="frame-link modal-trigger" data-modal="frame1">
+                        <img src="images/output.jpg" alt="our Bakery">
+                        <div class="chocolate-border">
+                            <div class="border-inner"></div>
+                        </div>
+                        <div class="frame-overlay">
+                            <div class="frame-info">
+                                <h3>Cozy Bakery</h3>
+                                <p>Bakery yang memanjakan mata</p>
+                                <div class="frame-icon"><i class="fas fa-coffee"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Frame 2 -->
+                <div class="photo-frame" data-frame="2">
+                    <a href="#frame2" class="frame-link modal-trigger" data-modal="frame2">
+                        <img src="images/cafe 1.jpg" alt="Cafe">
+                        <div class="chocolate-border">
+                            <div class="border-inner"></div>
+                        </div>
+                        <div class="frame-overlay">
+                            <div class="frame-info">
+                                <h3>Cafe</h3>
+                                <p>Cafe dengan nuansa coklat dan nyaman</p>
+                                <div class="frame-icon"><i class="fas fa-bread-slice"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Frame 3 -->
+                <div class="photo-frame" data-frame="3">
+                    <a href="#frame3" class="frame-link modal-trigger" data-modal="frame3">
+                        <img src="images/dining room.jpg" alt="Dining room">
+                        <div class="chocolate-border">
+                            <div class="border-inner"></div>
+                        </div>
+                        <div class="frame-overlay">
+                            <div class="frame-info">
+                                <h3>Dining room</h3>
+                                <p>Modern </p>
+                                <div class="frame-icon"><i class="fas fa-cheese"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Frame 4 -->
+                <div class="photo-frame" data-frame="4">
+                    <a href="#frame4" class="frame-link modal-trigger" data-modal="frame4">
+                        <img src="images/cozy corner.jpg" alt="Cozy Corner">
+                        <div class="chocolate-border">
+                            <div class="border-inner"></div>
+                        </div>
+                        <div class="frame-overlay">
+                            <div class="frame-info">
+                                <h3>Dining place</h3>
+                                <p>Perfect for chill, and Work from Cafe.</p>
+                                <div class="frame-icon"><i class="fas fa-heart"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modals (4 frames) -->
+   
+    <script>
+        // Auto play background music (optional)
+        window.onload = function() {
+            const bgMusic = document.getElementById('bgMusic');
+            bgMusic.volume = 0.1;
+            // bgMusic.play().catch(() => {}); // Uncomment untuk auto play
+        }
+    </script>
+</body>
+</html>
