@@ -873,3 +873,263 @@ body {
     border-top-right-radius: 28px;
     text-align: center;
 }
+
+
+
+
+/* ========== FORCE RESPONSIVE FIX - JANGAN DIHAPUS ========== */
+@media (max-width: 768px) {
+  /* FORCE semua container jadi 1 kolom */
+  .payment-wrapper {
+    display: block !important;
+  }
+  
+  .cart-section, .payment-section {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    padding: 20px 15px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* FORCE product grid 2 kolom */
+  .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+  
+  .product-card {
+    margin: 0 !important;
+    padding: 12px 8px !important;
+  }
+  
+  .product-name {
+    font-size: 12px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+  
+  .product-price {
+    font-size: 11px !important;
+  }
+  
+  /* FORCE category filter horizontal scroll */
+  .category-filters {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 8px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .filter-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    padding: 6px 14px !important;
+  }
+  
+  /* FORCE payment methods 2 kolom */
+  .payment-methods {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  
+  /* FORCE form jadi 1 kolom */
+  .form-row {
+    display: block !important;
+  }
+  
+  .form-group {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* FORCE input full width */
+  .form-input, .search-input, .promo-input-group input {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    padding: 12px !important;
+  }
+  
+  /* FORCE search container vertikal */
+  .search-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .add-product-btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  /* FORCE cart items */
+  .cart-item {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+    padding: 12px !important;
+  }
+  
+  .item-info {
+    flex: 1 1 100% !important;
+    text-align: center !important;
+  }
+  
+  .item-quantity {
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .item-total {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+  
+  /* FORCE promo section */
+  .promo-input-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .promo-input-group button {
+    width: 100% !important;
+  }
+  
+  /* FORCE nav responsive */
+  .nav-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  
+  .nav-links a {
+    font-size: 12px !important;
+    padding: 5px 8px !important;
+  }
+  
+  .logo-area {
+    justify-content: center !important;
+  }
+  
+  .logo-text h1 {
+    font-size: 18px !important;
+  }
+  
+  /* FORCE hero section */
+  .payment-hero {
+    padding: 100px 15px 40px !important;
+  }
+  
+  .payment-hero-content h1 {
+    font-size: 28px !important;
+  }
+  
+  /* FORCE summary row */
+  .summary-row {
+    font-size: 14px !important;
+    padding: 8px 0 !important;
+  }
+  
+  .summary-row.total-row {
+    font-size: 16px !important;
+  }
+  
+  /* FORCE ewallet options */
+  .ewallet-options {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  
+  .ewallet-option {
+    font-size: 12px !important;
+    padding: 8px 12px !important;
+  }
+  
+  /* FORCE QRIS */
+  .qris-code {
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0 auto 10px !important;
+  }
+  
+  /* FORCE modal */
+  .modal-content {
+    width: 95% !important;
+    margin: 10px auto !important;
+  }
+  
+  /* FORCE pay button */
+  .pay-button {
+    width: 100% !important;
+    font-size: 14px !important;
+    padding: 14px !important;
+  }
+  
+  /* FORCE cart header */
+  .cart-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center !important;
+  }
+  
+  /* FORCE security badge */
+  .security-badge {
+    font-size: 11px !important;
+  }
+}
+
+/* Ukuran HP lebih kecil */
+@media (max-width: 480px) {
+  .product-grid {
+    gap: 6px !important;
+  }
+  
+  .product-card {
+    padding: 8px 4px !important;
+  }
+  
+  .product-name {
+    font-size: 10px !important;
+  }
+  
+  .filter-btn {
+    font-size: 10px !important;
+    padding: 5px 10px !important;
+  }
+  
+  .method-card {
+    padding: 8px 4px !important;
+  }
+  
+  .method-card i {
+    font-size: 18px !important;
+  }
+  
+  .method-card span {
+    font-size: 10px !important;
+  }
+  
+  .qty-btn {
+    width: 26px !important;
+    height: 26px !important;
+  }
+}
