@@ -726,3 +726,5 @@ window.changeQty = changeQty;
 window.removeItem = removeItem;
 window.closeModal = closeModal;
 window.setCategory = setCategory;
+
+
