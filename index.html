@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1-1-1 Bakery | Premium Bakery Artisan - Amazing Taste</title>
-    <!-- Font Awesome Icons -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- External CSS -->
+   
     <link rel="stylesheet" href="index.css">
 
     <link rel="icon" type="png" href="lss.png">
@@ -16,12 +16,12 @@
 </head>
 <body>
 
-    <!-- Background Music -->
+
     <audio id="bgMusic" loop preload="auto">
         <source src="YTDown.com_YouTube_10-Minute-Countdown-Timer-Cozy-Coffee-Sh_Media_ASWdTkiqeTQ_009_128k.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Navigation Bar -->
+
     <nav class="navbar">
         <div class="logo-area">
             <div class="logo-circle">
@@ -45,7 +45,7 @@
         </ul>
     </nav>
 
-    <!-- Hero Section - Introduction Utama Bakery -->
+  
     <section class="hero">
         <div class="hero-content">
             <h1>1-1-1 Bakery</h1>
@@ -57,7 +57,6 @@
         </div>
     </section>
 
-    <!-- Brand Story / Intro Singkat -->
     <section class="intro-story">
         <div class="container">
             <div class="story-text">
@@ -71,7 +70,7 @@
         </div>
     </section>
 
-    <!-- Preview Section: Menu, Gallery, Payment -->
+  
     <section class="preview-cards">
         <div class="container">
             <h2 class="section-title">Jelajahi Lebih Dalam</h2>
@@ -98,7 +97,7 @@
         </div>
     </section>
 
-    <!-- Quote / Atmosfer -->
+
     <section class="quote-section">
         <div class="quote-content">
             <i class="fas fa-quote-left"></i>
@@ -107,7 +106,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -131,7 +129,7 @@
         </div>
     </footer>
 
-    <!-- MODERN MUSIC PLAYER POPUP -->
+  
     <div class="music-player-popup" id="musicPopup">
         <div class="music-toggle" id="musicToggle">
             <div class="music-icon-container">
@@ -172,7 +170,7 @@
     </div>
 
     <script>
-        // MUSIC PLAYER POPUP SCRIPT
+ 
         const musicPopup = document.getElementById('musicPopup');
         const musicToggle = document.getElementById('musicToggle');
         const musicContent = document.getElementById('musicContent');
@@ -189,7 +187,7 @@
         bgMusic.volume = 0.25;
         bgMusic.loop = true;
         
-        // Toggle popup expand/collapse
+     
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             isExpanded = !isExpanded;
@@ -204,7 +202,7 @@
             }
         });
         
-        // Play/Pause music
+ 
         playPauseBtn.addEventListener('click', () => {
             if (isMusicPlaying) {
                 bgMusic.pause();
@@ -223,7 +221,7 @@
             }
         });
         
-        // Volume control
+
         volumeSlider.addEventListener('input', (e) => {
             const volume = e.target.value / 100;
             bgMusic.volume = volume;
@@ -236,7 +234,7 @@
             }
         });
         
-        // Close / Collapse button
+    
         closeBtn.addEventListener('click', () => {
             isExpanded = false;
             musicPopup.classList.remove('expanded');
@@ -244,7 +242,7 @@
             musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
         });
         
-        // Auto hint on first visit
+      
         setTimeout(() => {
             if (!localStorage.getItem('musicHintShown')) {
                 isExpanded = true;
