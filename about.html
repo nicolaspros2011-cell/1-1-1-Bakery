@@ -9,23 +9,23 @@
     <title>1-1-1 Bakery | About</title>
 
 
-    <!-- ICON -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- FONT -->
+   
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="about.css">
 
- <!-- Background Music -->
+
     <audio id="bgMusic" loop preload="auto">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
 
 
-<!-- Navigation Bar -->
+
     <nav class="navbar">
         <div class="logo-area">
             <div class="logo-circle">
@@ -49,7 +49,7 @@
     </nav>
 
 
-<!-- HERO -->
+
 <section class="about-hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -59,7 +59,7 @@
 </section>
 
 
-<!-- STORY -->
+
 <section class="story">
     <div class="container">
 
@@ -85,7 +85,7 @@ Meski menghadapi berbagai tantangan, kami terus berinovasi dan berusaha memberik
 </section>
 
 
-<!-- EXPERIENCE -->
+
 <section class="experience">
 
 
@@ -121,7 +121,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
 </section>
 
 
-<!-- STATS (BARU - INFO KOMPLEKS) -->
+ 
 <section class="stats">
     <div class="container">
         <div class="stat-item">
@@ -145,8 +145,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
 
 
 
-<!-- TIMELINE -->
-<!-- TIMELINE -->
+
 <section class="timeline">
     <h2>Perjalanan Kami</h2>
 
@@ -176,7 +175,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
 </section>
 
 
-    <!-- Quote / Atmosfer -->
+ 
     <section class="quote-section">
         <div class="quote-content">
             <i class="fas fa-quote-left"></i>
@@ -185,7 +184,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
         </div>
     </section>
 
-    <!-- Footer -->
+
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -211,7 +210,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
 
 
 
-<!-- MODERN MUSIC PLAYER POPUP -->
+
     <div class="music-player-popup" id="musicPopup">
         <div class="music-toggle" id="musicToggle">
             <div class="music-icon-container">
@@ -252,7 +251,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
     </div>
 
     <script>
-        // MUSIC PLAYER POPUP SCRIPT
+      
         const musicPopup = document.getElementById('musicPopup');
         const musicToggle = document.getElementById('musicToggle');
         const musicContent = document.getElementById('musicContent');
@@ -269,7 +268,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
         bgMusic.volume = 0.25;
         bgMusic.loop = true;
         
-        // Toggle popup expand/collapse
+    
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             isExpanded = !isExpanded;
@@ -283,8 +282,8 @@ tanpa tuntutan, tanpa harus sempurna.</p>
                 musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
             }
         });
-        
-        // Play/Pause music
+
+     
         playPauseBtn.addEventListener('click', () => {
             if (isMusicPlaying) {
                 bgMusic.pause();
@@ -303,7 +302,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
             }
         });
         
-        // Volume control
+   
         volumeSlider.addEventListener('input', (e) => {
             const volume = e.target.value / 100;
             bgMusic.volume = volume;
@@ -316,7 +315,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
             }
         });
         
-        // Close / Collapse button
+    
         closeBtn.addEventListener('click', () => {
             isExpanded = false;
             musicPopup.classList.remove('expanded');
@@ -324,7 +323,7 @@ tanpa tuntutan, tanpa harus sempurna.</p>
             musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
         });
         
-        // Auto hint on first visit
+  
         setTimeout(() => {
             if (!localStorage.getItem('musicHintShown')) {
                 isExpanded = true;
