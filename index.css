@@ -1,4 +1,4 @@
-/* ========== RESET & GLOBAL ========== */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Color Scheme */
+
 :root {
     --warm-brown: #4A3428;
     --wood-brown: #6B4A36;
@@ -31,7 +31,7 @@ body {
     padding: 0 20px;
 }
 
-/* ========== NAVBAR ========== */
+
 .navbar {
     background: rgba(254, 249, 244, 0.95);
     backdrop-filter: blur(25px);
@@ -138,8 +138,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* ========== HERO SECTION ========== */
-/* DEBUG: Ganti background hero ke gambar lain yang pasti ada */
+
 
 .hero {
     background: url("bg.png") center/cover no-repeat;
@@ -237,7 +236,7 @@ body {
 }
 
 
-/* ========== HERO SECTION ========== */
+
 
 
 
@@ -328,7 +327,7 @@ body {
     box-shadow: 0 20px 40px rgba(74,52,40,0.4);
 }
 
-/* ========== INTRO STORY ========== */
+
 .intro-story {
     padding: 7rem 2rem;
     background: linear-gradient(135deg, var(--beige-soft) 0%, var(--milk-white) 100%);
@@ -377,7 +376,7 @@ body {
 
 
 
-/* ========== PREVIEW CARDS ========== */
+
 .preview-cards {
     padding: 6rem 2rem;
     background: var(--cream-warm);
@@ -458,7 +457,7 @@ body {
     border-bottom-color: var(--warm-brown);
 }
 
-/* ========== QUOTE SECTION ========== */
+
 .quote-section {
     background: linear-gradient(135deg, var(--warm-brown), var(--wood-brown));
     color: #F5EDE2;
@@ -488,7 +487,7 @@ body {
     opacity: 0.8;
 }
 
-/* ========== FOOTER ========== */
+
 footer {
     background: var(--warm-brown);
     color: #E8DCCA;
@@ -550,7 +549,7 @@ footer {
     color: #C4B4A0;
 }
 
-/* ========== MODERN MUSIC PLAYER POPUP ========== */
+
 .music-player-popup {
     position: fixed;
     bottom: 30px;
@@ -559,7 +558,7 @@ footer {
     font-family: 'Inter', sans-serif;
 }
 
-/* Toggle Button (collapsed state) */
+
 .music-toggle {
     background: linear-gradient(145deg, var(--warm-brown), #3D2A1F);
     backdrop-filter: blur(12px);
@@ -652,7 +651,7 @@ footer {
     background: linear-gradient(145deg, var(--wood-brown), var(--warm-brown));
 }
 
-/* Player Header */
+
 .player-header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -698,7 +697,7 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Player Controls */
+
 .player-controls {
     display: flex;
     align-items: center;
@@ -764,7 +763,7 @@ footer {
     box-shadow: 0 0 5px rgba(212,176,140,0.8);
 }
 
-/* Music Status */
+
 .music-status {
     text-align: center;
     margin-bottom: 1rem;
@@ -779,7 +778,7 @@ footer {
     letter-spacing: 0.5px;
 }
 
-/* Close Button */
+
 .close-music-btn {
     width: 100%;
     background: rgba(255,255,255,0.1);
@@ -800,10 +799,10 @@ footer {
     background: rgba(212,176,140,0.2);
 }
 
-/* ===== MOBILE RESPONSIVE FIX ===== */
+
 @media (max-width: 768px) {
 
-    /* NAVBAR */
+   
     .navbar {
         padding: 1rem;
         flex-direction: column;
@@ -816,7 +815,7 @@ footer {
         margin-top: 10px;
     }
 
-    /* HERO */
+    
     .about-hero {
         height: auto;
         padding: 100px 20px;
@@ -832,9 +831,9 @@ footer {
         padding: 12px 20px;
     }
 
-    /* STORY */
+
     .container {
-        grid-template-columns: 1fr; /* dari 2 kolom jadi 1 */
+        grid-template-columns: 1fr; 
         gap: 40px;
         padding: 0 20px;
     }
@@ -843,7 +842,7 @@ footer {
         height: 300px;
     }
 
-    /* EXPERIENCE */
+  
     .exp-row {
         grid-template-columns: 1fr;
         padding: 30px;
@@ -854,19 +853,19 @@ footer {
         direction: ltr;
     }
 
-    /* STATS */
+   
     .stats .container {
         flex-direction: column;
         gap: 2rem;
     }
 
-    /* TIMELINE */
+  
     .timeline {
         border-radius: 0;
         padding: 80px 20px;
     }
 
-    /* FOOTER */
+   
     .footer-content {
         flex-direction: column;
         text-align: center;
