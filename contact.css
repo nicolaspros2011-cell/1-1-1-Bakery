@@ -536,3 +536,78 @@ color:#DDCBB8;
 .close-music-btn:hover {
     background: rgba(212,176,140,0.2);
 }
+
+/* ===== MOBILE RESPONSIVE FIX ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 10px;
+    }
+
+    /* HERO */
+    .about-hero {
+        height: auto;
+        padding: 100px 20px;
+        border-radius: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    /* STORY */
+    .container {
+        grid-template-columns: 1fr; /* dari 2 kolom jadi 1 */
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .story-image img {
+        height: 300px;
+    }
+
+    /* EXPERIENCE */
+    .exp-row {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .exp-row.reverse {
+        direction: ltr;
+    }
+
+    /* STATS */
+    .stats .container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* TIMELINE */
+    .timeline {
+        border-radius: 0;
+        padding: 80px 20px;
+    }
+
+    /* FOOTER */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+}
