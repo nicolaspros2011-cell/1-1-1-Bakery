@@ -894,6 +894,14 @@ footer {
     padding: 4rem 0 1.5rem;
 }
 
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
 
 .footer-bottom {
     text-align: center;
