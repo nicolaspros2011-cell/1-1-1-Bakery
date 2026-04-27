@@ -1,4 +1,3 @@
-/* Variabel Warna */
 :root {
     --warm-brown: #5d4037;
     --wood-brown: #3e2723;
@@ -8,7 +7,7 @@
     --warm-shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Reset Dasar */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ========== NAVBAR (Sama seperti about.css) ========== */
+
 .navbar {
     background: rgba(254, 249, 244, 0.95);
     backdrop-filter: blur(25px);
@@ -129,7 +128,7 @@ body {
     color: var(--wood-brown);
 }
 
-/* ========== LAYOUT SECTION ========== */
+
 
 .owner-header {
     text-align: center;
@@ -148,7 +147,7 @@ body {
     padding: 40px 20px;
 }
 
-/* KARTU UTAMA (Container Luar) */
+
 .owner-card {
     display: flex;
     align-items: center;
@@ -161,25 +160,25 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Efek Hover Card */
+
 .owner-card:hover {
     transform: translateY(-12px) scale(1.01);
     background: rgba(255, 255, 255, 0.6);
     box-shadow: 0 20px 45px rgba(62, 39, 35, 0.15);
 }
 
-/* Mengatur posisi balik (reverse) */
+
 .owner-card.reverse {
     flex-direction: row-reverse;
 }
 
-/* CONTAINER DALAM (Khusus Foto) */
+
 .photo-container {
-    width: 280px;  /* Lebar tetap agar seragam */
-    height: 350px; /* Tinggi tetap agar seragam */
+    width: 280px;  
+    height: 350px; 
     background: #ffffff;
     padding: 15px;
-    padding-bottom: 60px; /* Ruang bawah gaya polaroid */
+    padding-bottom: 60px; 
     box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
     display: flex;
     justify-content: center;
@@ -190,15 +189,15 @@ body {
 .photo-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Foto tetap proporsional */
+    object-fit: cover; 
 }
 
-/* Rotasi Sedikit saat Hover */
+
 .owner-card:hover .photo-container {
     transform: rotate(4deg);
 }
 
-/* INFO OWNER */
+
 .owner-info {
     flex: 1;
 }
@@ -224,7 +223,7 @@ body {
     color: #4e342e;
 }
 
-/* FOOTER */
+
 .footer {
     text-align: center;
     padding: 50px;
@@ -232,7 +231,7 @@ body {
     opacity: 0.6;
 }
 
-/* ========== MODERN MUSIC PLAYER POPUP ========== */
+
 .music-player-popup {
     position: fixed;
     bottom: 30px;
@@ -241,7 +240,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Toggle Button (collapsed state) */
+
 .music-toggle {
     background: linear-gradient(145deg, #3e2723, #5d4037);
     backdrop-filter: blur(12px);
@@ -304,7 +303,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Expanded Content Panel */
+
 .music-player-content {
     position: absolute;
     bottom: 80px;
@@ -334,7 +333,7 @@ body {
     background: linear-gradient(145deg, #3e2723, #5d4037);
 }
 
-/* Player Header */
+
 .player-header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -380,7 +379,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Player Controls */
+
 .player-controls {
     display: flex;
     align-items: center;
@@ -446,7 +445,7 @@ body {
     box-shadow: 0 0 5px rgba(212,176,140,0.8);
 }
 
-/* Music Status */
+
 .music-status {
     text-align: center;
     margin-bottom: 1rem;
@@ -461,7 +460,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Close Button */
+
 .close-music-btn {
     width: 100%;
     background: rgba(255,255,255,0.1);
@@ -482,7 +481,7 @@ body {
     background: rgba(212,176,140,0.2);
 }
 
-/* RESPONSIVE (Untuk Tampilan Mobile) */
+
 @media (max-width: 850px) {
     .owner-card, .owner-card.reverse {
         flex-direction: column;
@@ -496,10 +495,10 @@ body {
 }
 
 
-/* ===== MOBILE RESPONSIVE FIX ===== */
+
 @media (max-width: 768px) {
 
-    /* NAVBAR */
+
     .navbar {
         padding: 1rem;
         flex-direction: column;
@@ -512,7 +511,7 @@ body {
         margin-top: 10px;
     }
 
-    /* HERO */
+ 
     .about-hero {
         height: auto;
         padding: 100px 20px;
@@ -528,7 +527,7 @@ body {
         padding: 12px 20px;
     }
 
-    /* STORY */
+
     .container {
         grid-template-columns: 1fr; /* dari 2 kolom jadi 1 */
         gap: 40px;
@@ -539,7 +538,7 @@ body {
         height: 300px;
     }
 
-    /* EXPERIENCE */
+
     .exp-row {
         grid-template-columns: 1fr;
         padding: 30px;
@@ -550,19 +549,19 @@ body {
         direction: ltr;
     }
 
-    /* STATS */
+
     .stats .container {
         flex-direction: column;
         gap: 2rem;
     }
 
-    /* TIMELINE */
+ 
     .timeline {
         border-radius: 0;
         padding: 80px 20px;
     }
 
-    /* FOOTER */
+  
     .footer-content {
         flex-direction: column;
         text-align: center;
