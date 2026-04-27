@@ -1,4 +1,3 @@
-/* ========== RESET & BASE ========== */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +11,7 @@ body {
   width: 100%;
 }
 
-/* ========== NAVBAR ========== */
+
 :root {
   --warm-brown: #4b2e1e;
   --wood-brown: #6b3e2a;
@@ -125,7 +124,7 @@ body {
   color: var(--wood-brown);
 }
 
-/* ========== TITLE ========== */
+
 .title {
   text-align: center;
   font-family: 'Playfair Display', serif;
@@ -136,12 +135,12 @@ body {
   letter-spacing: 2px;
 }
 
-/* ========== HIDE RADIO ========== */
+
 input[type="radio"] {
   display: none;
 }
 
-/* ========== BOOK CONTAINER ========== */
+
 .book {
   width: 1000px;
   max-width: 90%;
@@ -155,7 +154,7 @@ input[type="radio"] {
   box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 0 60px rgba(255,255,255,0.1);
 }
 
-/* ========== SPREAD ========== */
+
 .spread {
   display: none;
   position: relative;
@@ -183,7 +182,7 @@ input[type="radio"] {
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* ========== CATEGORY PAGE ========== */
+
 .category-page {
   width: 100%;
   height: auto;
@@ -231,7 +230,7 @@ input[type="radio"] {
   border-radius: 2px;
 }
 
-/* ========== ITEMS GRID ========== */
+
 .items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -239,7 +238,7 @@ input[type="radio"] {
   padding: 10px 0;
 }
 
-/* ========== MENU ITEM ========== */
+
 .menu-item {
   background: rgba(255,255,255,0.9);
   border-radius: 20px;
@@ -304,7 +303,7 @@ input[type="radio"] {
   box-shadow: 0 4px 12px rgba(210,180,140,0.4);
 }
 
-/* ========== NAVIGATION ARROWS - DI KANAN KIRI BUKU ========== */
+
 .next, .prev {
   position: absolute;
   top: 50%;
@@ -340,7 +339,7 @@ input[type="radio"] {
   color: white;
 }
 
-/* ========== PROGRESS DOTS ========== */
+
 .progress-dots {
   text-align: center;
   margin: 20px 0 40px;
@@ -378,7 +377,7 @@ input[type="radio"] {
   background: #c97e5a;
 }
 
-/* ========== MUSIC BOX ========== */
+
 .music-box {
   position: fixed;
   bottom: 20px;
@@ -479,7 +478,7 @@ input[type="radio"] {
   50% { height: 28px; }
 }
 
-/* ========== FOOTER ========== */
+
 footer {
   text-align: center;
   padding: 25px;
@@ -489,7 +488,7 @@ footer {
   margin-top: 50px;
 }
 
-/* ========== TAMBAHAN BIAR GA GEPENG DI HAPE ========== */
+
 @media (max-width: 600px) {
   /* BUKU JADI FLEXIBLE, TIDAK DIPAKSA TINGGI */
   .book {
@@ -499,33 +498,33 @@ footer {
     margin: 0 10px 30px 10px;
   }
 
-  /* SPREAD MENGIKUTI TINGGI KONTEN */
+ 
   .spread {
     position: relative !important;
     height: auto !important;
     min-height: 480px;
   }
 
-  /* CATEGORY PAGE TIDAK DIPAKSA TINGGI */
+  
   .category-page {
     height: auto !important;
     max-height: 520px;
     padding: 15px !important;
   }
 
-  /* GRID JADI 2 KOLOM TEPAT, TIDAK MELAR */
+
   .items-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
   }
 
-  /* GAMBAR KECILIN AGAR FIT */
+
   .menu-item img {
     width: 55px !important;
     height: 55px !important;
   }
 
-  /* TEKS GAK KEPOTONG */
+  
   .menu-item h4 {
     font-size: 0.75rem !important;
   }
@@ -539,7 +538,7 @@ footer {
     font-size: 0.65rem !important;
   }
 
-  /* PANAH TETAP DI KANAN KIRI TAPI RAHASIA */
+  
   .next, .prev {
     width: 35px !important;
     height: 35px !important;
@@ -554,7 +553,7 @@ footer {
     left: -8px !important;
   }
 
-  /* JUDUL GAK KEPOTONG */
+ 
   .category-title {
     font-size: 1.3rem !important;
   }
