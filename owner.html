@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Owners - 1-1-1 Bakery</title>
-    <!-- Font Awesome Icons -->
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
+   
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="owner.css">
 
-     <link rel="icon" type="png" href="lss.png">
+     <link rel="icon" type="image/png" href="images/lss.png">
 </head>
 <body>
 
-    <!-- Background Music -->
+  
     <audio id="bgMusic" loop preload="auto">
         <source src="YTDown.com_YouTube_10-Minute-Countdown-Timer-Cozy-Coffee-Sh_Media_ASWdTkiqeTQ_009_128k.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Navigation Bar -->
+ 
     <nav class="navbar">
         <div class="logo-area">
             <div class="logo-circle">
-                <img src="logo.png" alt="Logo Bakery">
+                <img src="images/logo.png" alt="Logo Bakery">
             </div>
             <div class="logo-text">
                 <h1>1-1-1 Bakery</h1>
@@ -50,7 +50,7 @@
         
         <div class="owner-card">
             <div class="photo-container">
-                <img src="0 (5).jpg" alt="Nicolas">
+                <img src="images/0 (5).jpg" alt="Nicolas">
             </div>
             <div class="owner-info">
                 <h2>Nicolas</h2>
@@ -61,7 +61,7 @@
 
         <div class="owner-card reverse">
             <div class="photo-container">
-                <img src="0 (4).jpg" alt="Louis">
+                <img src="images/0 (4).jpg" alt="Louis">
             </div>
             <div class="owner-info">
                 <h2>Louis</h2>
@@ -72,7 +72,7 @@
 
         <div class="owner-card">
             <div class="photo-container">
-                <img src="0 (2).jpg" alt="Vanessa">
+                <img src="images/0 (2).jpg" alt="Vanessa">
             </div>
             <div class="owner-info">
                 <h2>Vanessa</h2>
@@ -83,7 +83,7 @@
 
         <div class="owner-card reverse">
             <div class="photo-container">
-                <img src="0 (1).jpg" alt="Cathleen">
+                <img src="images/0 (1).jpg" alt="Cathleen">
             </div>
             <div class="owner-info">
                 <h2>Cathleen</h2>
@@ -94,7 +94,7 @@
 
         <div class="owner-card">
             <div class="photo-container">
-                <img src="0 (3).jpg" alt="Joanna">
+                <img src="images/0 (3).jpg" alt="Joanna">
             </div>
             <div class="owner-info">
                 <h2>Joanna</h2>
@@ -105,7 +105,7 @@
 
         <div class="owner-card reverse">
             <div class="photo-container">
-                <img src="0.jpg" alt="Felicia">
+                <img src="images/0.jpg" alt="Felicia">
             </div>
             <div class="owner-info">
                 <h2>Felicia</h2>
@@ -120,7 +120,7 @@
         &copy; 2026 1-1-1 Bakery. All Rights Reserved.
     </footer>
 
-    <!-- MODERN MUSIC PLAYER POPUP -->
+   
     <div class="music-player-popup" id="musicPopup">
         <div class="music-toggle" id="musicToggle">
             <div class="music-icon-container">
@@ -161,7 +161,7 @@
     </div>
 
     <script>
-        // MUSIC PLAYER POPUP SCRIPT
+       
         const musicPopup = document.getElementById('musicPopup');
         const musicToggle = document.getElementById('musicToggle');
         const musicContent = document.getElementById('musicContent');
@@ -178,7 +178,7 @@
         bgMusic.volume = 0.25;
         bgMusic.loop = true;
         
-        // Toggle popup expand/collapse
+        
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             isExpanded = !isExpanded;
@@ -193,7 +193,7 @@
             }
         });
         
-        // Play/Pause music
+       
         playPauseBtn.addEventListener('click', () => {
             if (isMusicPlaying) {
                 bgMusic.pause();
@@ -212,7 +212,7 @@
             }
         });
         
-        // Volume control
+      
         volumeSlider.addEventListener('input', (e) => {
             const volume = e.target.value / 100;
             bgMusic.volume = volume;
@@ -225,7 +225,7 @@
             }
         });
         
-        // Close / Collapse button
+      
         closeBtn.addEventListener('click', () => {
             isExpanded = false;
             musicPopup.classList.remove('expanded');
@@ -233,7 +233,7 @@
             musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
         });
         
-        // Auto hint on first visit
+     
         setTimeout(() => {
             if (!localStorage.getItem('musicHintShown')) {
                 isExpanded = true;
