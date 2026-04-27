@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment - 1-1-1 Bakery | Premium Artisan Bakery</title>
-    <!-- Font Awesome Icons -->
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
+   
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- CSS Payment -->
+  
     <link rel="stylesheet" href="payment.css">
 
  <link rel="icon" type="image/png" href="images/lss.png">
@@ -16,17 +16,17 @@
 </head>
 <body>
 
-    <!-- Background Music -->
+   
     <audio id="bgMusic" loop preload="auto">
         <source src="YTDown.com_YouTube_10-Minute-Countdown-Timer-Cozy-Coffee-Sh_Media_ASWdTkiqeTQ_009_128k.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Navigation Bar -->
+  
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo-area">
                 <div class="logo-circle">
-                    <img src="logo.png" alt="Logo Bakery" onerror="this.src='https://via.placeholder.com/50x50?text=🍞'">
+                    <img src="images/logo.png" alt="Logo Bakery" onerror="this.src='https://via.placeholder.com/50x50?text=🍞'">
                 </div>
                 <div class="logo-text">
                     <h1>1-1-1 Bakery</h1>
@@ -46,7 +46,7 @@
         </div>
     </nav>
 
-    <!-- Hero Payment Section -->
+   
     <section class="payment-hero">
         <div class="payment-hero-content">
             <h1>Complete Your <span class="highlight">Payment</span></h1>
@@ -55,11 +55,11 @@
         </div>
     </section>
 
-    <!-- Main Payment Container -->
+   
     <div class="main-container">
         <div class="payment-wrapper">
             
-            <!-- LEFT SIDE - CART SECTION -->
+       
             <div class="cart-section">
                 <div class="cart-header">
                     <div class="cart-header-title">
@@ -72,7 +72,7 @@
                     </button>
                 </div>
 
-                <!-- Product Search & Add -->
+               
                 <div class="product-search-section">
                     <div class="search-container">
                         <input type="text" id="productSearch" class="search-input" placeholder="Search or type product name... (e.g., Sourdough, Croissant, Coffee)">
@@ -83,8 +83,8 @@
                     <div id="searchSuggestions" class="search-suggestions"></div>
                 </div>
 
-                <!-- Category Filters -->
-            <!-- Category Filters -->
+               
+
 <div class="category-filters">
     <button class="filter-btn active" data-category="all">All</button>
     <button class="filter-btn" data-category="Breads">🥖 Breads</button>
@@ -97,14 +97,14 @@
     <button class="filter-btn" data-category="Tea & Shakes">🧋 Tea & Shakes</button>
 </div>
 
-                <!-- Product Grid -->
+            
                 <div class="product-grid" id="productGrid">
                     <!-- Products will be loaded here -->
                 </div>
 
                 <div class="cart-divider"></div>
 
-                <!-- Cart Items -->
+           
                 <div class="cart-items-container" id="cartItemsContainer">
                     <!-- Cart items will be injected here -->
                 </div>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
 
-                <!-- Promo Code -->
+            
                 <div class="promo-section">
                     <div class="promo-input-group">
                         <input type="text" id="promoCode" placeholder="Enter promo code (BAKERY10, WELCOME20)">
@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE - PAYMENT FORM -->
+          
             <div class="payment-section">
                 <div class="payment-section-header">
                     <i class="fas fa-credit-card"></i>
@@ -254,7 +254,7 @@
         </div>
     </div>
 
-    <!-- RECEIPT MODAL -->
+ 
     <div id="receiptModal" class="modal">
         <div class="modal-content receipt">
             <div class="receipt-header">
@@ -277,48 +277,50 @@
 
     <script src="payment.js"></script>
 
-    <!-- MODERN MUSIC PLAYER POPUP -->
-    <div class="music-player-popup" id="musicPopup">
-        <div class="music-toggle" id="musicToggle">
-            <div class="music-icon-container">
-                <i class="fas fa-headphones"></i>
-                <i class="fas fa-music music-note"></i>
+
+
+<div class="music-player-popup" id="musicPopup">
+    <div class="music-toggle" id="musicToggle">
+        <div class="music-icon-container">
+            <i class="fas fa-headphones"></i>
+            <i class="fas fa-music music-note"></i>
+        </div>
+        <span class="toggle-text">Music</span>
+        <i class="fas fa-chevron-up expand-icon"></i>
+    </div>
+    
+    <div class="music-player-content" id="musicContent">
+        <div class="player-header">
+            <div class="player-wave">
+                <span></span><span></span><span></span><span></span>
             </div>
-            <span class="toggle-text">Music</span>
-            <i class="fas fa-chevron-up expand-icon"></i>
+            <h4>Bakery Jazz Comfort</h4>
+            <p>1-1-1 Bakery Official</p>
         </div>
         
-        <div class="music-player-content" id="musicContent">
-            <div class="player-header">
-                <div class="player-wave">
-                    <span></span><span></span><span></span><span></span>
-                </div>
-                <h4>Bakery Jazz Comfort</h4>
-                <p>1-1-1 Bakery Official</p>
-            </div>
-            
-            <div class="player-controls">
-                <button id="playPauseMusicBtn" class="play-pause-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <div class="volume-control">
-                    <i class="fas fa-volume-up"></i>
-                    <input type="range" id="volumeSlider" min="0" max="100" value="25">
-                </div>
-            </div>
-            
-            <div class="music-status" id="musicStatus">
-                <span class="status-text">🎵 Ready to play</span>
-            </div>
-            
-            <button id="closeMusicBtn" class="close-music-btn">
-                <i class="fas fa-times"></i> Collapse
+        <div class="player-controls">
+            <button id="playPauseMusicBtn" class="play-pause-btn">
+                <i class="fas fa-play"></i>
             </button>
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" id="volumeSlider" min="0" max="100" value="25">
+            </div>
         </div>
+        
+        <div class="music-status" id="musicStatus">
+            <span class="status-text">🎵 Ready to play</span>
+        </div>
+        
+        <button id="closeMusicBtn" class="close-music-btn">
+            <i class="fas fa-times"></i> Collapse
+        </button>
     </div>
+</div>
 
-    <script>
-        // MUSIC PLAYER POPUP SCRIPT
+
+ <script>
+     
         const musicPopup = document.getElementById('musicPopup');
         const musicToggle = document.getElementById('musicToggle');
         const musicContent = document.getElementById('musicContent');
@@ -335,7 +337,7 @@
         bgMusic.volume = 0.25;
         bgMusic.loop = true;
         
-        // Toggle popup expand/collapse
+      
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             isExpanded = !isExpanded;
@@ -350,7 +352,7 @@
             }
         });
         
-        // Play/Pause music
+      
         playPauseBtn.addEventListener('click', () => {
             if (isMusicPlaying) {
                 bgMusic.pause();
@@ -369,7 +371,7 @@
             }
         });
         
-        // Volume control
+      
         volumeSlider.addEventListener('input', (e) => {
             const volume = e.target.value / 100;
             bgMusic.volume = volume;
@@ -382,7 +384,7 @@
             }
         });
         
-        // Close / Collapse button
+      
         closeBtn.addEventListener('click', () => {
             isExpanded = false;
             musicPopup.classList.remove('expanded');
@@ -390,7 +392,7 @@
             musicToggle.querySelector('.expand-icon').classList.add('fa-chevron-up');
         });
         
-        // Auto hint on first visit
+       
         setTimeout(() => {
             if (!localStorage.getItem('musicHintShown')) {
                 isExpanded = true;
