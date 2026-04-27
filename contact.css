@@ -68,7 +68,7 @@ overflow-x:hidden;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: var(--warm-brown);
+    color:#000000 !important;
 }
 
 .logo-text p {
