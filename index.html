@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <audio id="bgMusic" loop preload="auto">
+    <audio id="bgMusic" autoplay loop playsinline preload="auto">
         <source src="YTDown.com_YouTube_10-Minute-Countdown-Timer-Cozy-Coffee-Sh_Media_ASWdTkiqeTQ_009_128k.mp3" type="audio/mpeg">
     </audio>
 
@@ -185,7 +185,54 @@
         bgMusic.volume = 0.25;
         bgMusic.loop = true;
         
-        // Toggle popup expand/collapse
+        function startMusic() {
+    bgMusic.play().then(() => {
+        isMusicPlaying = true;
+        musicToggle.classList.add('playing');
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        musicStatus.innerHTML = '<span class="status-text">🎧 Now playing: Jazz Music</span>';
+    }).catch(e => {
+        console.log('Autoplay gagal:', e);
+        
+        bgMusic.muted = true;
+        bgMusic.play().then(() => {
+            bgMusic.muted = false;
+            isMusicPlaying = true;
+            musicToggle.classList.add('playing');
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            musicStatus.innerHTML = '<span class="status-text">🎧 Now playing: Jazz Music</span>';
+        }).catch(err => {
+            console.log('Autoplay tetap gagal:', err);
+            isMusicPlaying = false;
+            musicToggle.classList.remove('playing');
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            musicStatus.innerHTML = '<span class="status-text">🎵 Click play to start</span>';
+        });
+    });
+}
+
+
+startMusic();
+
+
+let retryCount = 0;
+const maxRetries = 5;
+
+const retryInterval = setInterval(() => {
+    if (isMusicPlaying) {
+        clearInterval(retryInterval);
+        return;
+    }
+    
+    retryCount++;
+    if (retryCount >= maxRetries) {
+        clearInterval(retryInterval);
+        return;
+    }
+    
+    startMusic();
+}, 1000);
+
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             isExpanded = !isExpanded;
