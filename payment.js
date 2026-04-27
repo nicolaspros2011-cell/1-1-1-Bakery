@@ -1,29 +1,28 @@
-// ========== DATA PRODUK LENGKAP (SESUAI MENU) ==========
 const productsData = [
-    // SPREAD 1: BREADS
+    
     { id: 1, name: 'Salt Bread', price: 12000, category: 'Breads', icon: '🥖' },
     { id: 2, name: 'Coffee Bun', price: 15000, category: 'Breads', icon: '🥖' },
     { id: 3, name: 'Croissant', price: 18000, category: 'Breads', icon: '🥐' },
     
-    // SPREAD 2: COOKIES
+    
     { id: 4, name: 'Oreo', price: 10000, category: 'Cookies', icon: '🍪' },
     { id: 5, name: 'Lotus', price: 12000, category: 'Cookies', icon: '🍪' },
     { id: 6, name: 'Smores', price: 14000, category: 'Cookies', icon: '🍪' },
     { id: 7, name: 'Choco Chip', price: 11000, category: 'Cookies', icon: '🍪' },
     { id: 8, name: 'Matcha', price: 13000, category: 'Cookies', icon: '🍪' },
     
-    // SPREAD 3: CHEESECAKE
+  
     { id: 9, name: 'Chocolate Cheesecake', price: 28000, category: 'Cheesecake', icon: '🍰' },
     { id: 10, name: 'Strawberry Cheesecake', price: 28000, category: 'Cheesecake', icon: '🍰' },
     { id: 11, name: 'Lotus Cheesecake', price: 30000, category: 'Cheesecake', icon: '🍰' },
     
-    // SPREAD 4: CUPCAKES
+    
     { id: 12, name: 'Oreo Cupcake', price: 16000, category: 'Cupcakes', icon: '🧁' },
     { id: 13, name: 'Lotus Cupcake', price: 18000, category: 'Cupcakes', icon: '🧁' },
     { id: 14, name: 'Matcha Cupcake', price: 19000, category: 'Cupcakes', icon: '🧁' },
     { id: 15, name: 'Lemon Cupcake', price: 17000, category: 'Cupcakes', icon: '🧁' },
     
-    // SPREAD 5: CAKES & SNACKS
+    
     { id: 16, name: 'Brownies', price: 18000, category: 'Cakes & Snacks', icon: '🍫' },
     { id: 17, name: 'Cinnamon Rolls', price: 22000, category: 'Cakes & Snacks', icon: '🍩' },
     { id: 18, name: 'Croffle', price: 20000, category: 'Cakes & Snacks', icon: '🧇' },
@@ -32,19 +31,19 @@ const productsData = [
     { id: 21, name: 'Muffins', price: 14000, category: 'Cakes & Snacks', icon: '🧁' },
     { id: 22, name: 'Pretzels', price: 16000, category: 'Cakes & Snacks', icon: '🥨' },
     
-    // SPREAD 6: COFFEE
+  
     { id: 23, name: 'Matcha Latte', price: 24000, category: 'Coffee', icon: '🍵' },
     { id: 24, name: 'Americano', price: 20000, category: 'Coffee', icon: '☕' },
     { id: 25, name: 'Espresso', price: 22000, category: 'Coffee', icon: '☕' },
     { id: 26, name: 'Mocha Frappuccino', price: 28000, category: 'Coffee', icon: '☕' },
     { id: 27, name: 'Cappuccino', price: 25000, category: 'Coffee', icon: '☕' },
     
-    // SPREAD 7: HOT DRINKS
+   
     { id: 28, name: 'Hot Chocolate', price: 23000, category: 'Hot Drinks', icon: '🍫' },
     { id: 29, name: 'Caramel Macchiato', price: 27000, category: 'Hot Drinks', icon: '☕' },
     { id: 30, name: 'Air Mineral', price: 5000, category: 'Hot Drinks', icon: '💧' },
     
-    // SPREAD 8: TEA & SHAKES
+   
     { id: 31, name: 'Milk Tea', price: 22000, category: 'Tea & Shakes', icon: '🧋' },
     { id: 32, name: 'Mint Choco Shake', price: 30000, category: 'Tea & Shakes', icon: '🥤' },
     { id: 33, name: 'Chocolate Shake', price: 30000, category: 'Tea & Shakes', icon: '🥤' },
@@ -52,10 +51,10 @@ const productsData = [
     { id: 35, name: 'Vanilla Shake', price: 28000, category: 'Tea & Shakes', icon: '🥤' }
 ];
 
-// ========== LOAD CART FROM localStorage ==========
+
 let cart = JSON.parse(localStorage.getItem('bakeryCart')) || [];
 
-// ========== PROMO CODES ==========
+
 const promoCodes = {
     'BAKERY10': { discount: 0.1, message: '10% discount applied!' },
     'WELCOME20': { discount: 0.2, message: '20% welcome discount!' },
@@ -67,12 +66,12 @@ let discountAmount = 0;
 let currentCategory = 'all';
 let searchQuery = '';
 
-// ========== SAVE CART ==========
+
 function saveCart() {
     localStorage.setItem('bakeryCart', JSON.stringify(cart));
 }
 
-// ========== ESCAPE HTML ==========
+
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, function(m) {
@@ -83,12 +82,12 @@ function escapeHtml(str) {
     });
 }
 
-// ========== FORMAT RUPIAH ==========
+
 function formatRupiah(angka) {
     return new Intl.NumberFormat('id-ID').format(angka);
 }
 
-// ========== SHOW TOAST ==========
+
 function showToast(message, type) {
     const toast = document.getElementById('toast');
     const toastMessage = document.getElementById('toastMessage');
@@ -112,7 +111,7 @@ function showToast(message, type) {
     }, 3000);
 }
 
-// ========== ADD TO CART ==========
+
 function addToCart(productName, productPrice) {
     var existingItem = null;
     for (var i = 0; i < cart.length; i++) {
@@ -137,7 +136,7 @@ function addToCart(productName, productPrice) {
     showToast(productName + ' added to cart!', 'success');
 }
 
-// ========== UPDATE CART DISPLAY ==========
+
 function updateCartDisplay() {
     const container = document.getElementById('cartItemsContainer');
     const subtotalEl = document.getElementById('subtotal');
@@ -199,7 +198,7 @@ function updateCartDisplay() {
     }
 }
 
-// ========== CHANGE QUANTITY ==========
+
 function changeQty(index, delta) {
     if (cart[index]) {
         cart[index].qty += delta;
@@ -211,7 +210,7 @@ function changeQty(index, delta) {
     }
 }
 
-// ========== REMOVE ITEM ==========
+
 function removeItem(index) {
     cart.splice(index, 1);
     saveCart();
@@ -219,7 +218,7 @@ function removeItem(index) {
     showToast('Item removed from cart', 'info');
 }
 
-// ========== CLEAR CART ==========
+
 function clearCart() {
     if (confirm('Are you sure you want to clear your entire cart?')) {
         cart = [];
@@ -235,7 +234,7 @@ function clearCart() {
     }
 }
 
-// ========== RENDER PRODUCT GRID ==========
+
 function renderProductGrid() {
     var gridContainer = document.getElementById('productGrid');
     if (!gridContainer) return;
@@ -262,7 +261,7 @@ function renderProductGrid() {
     }
 }
 
-// ========== UPDATE SEARCH SUGGESTIONS ==========
+
 function updateSearchSuggestions() {
     var searchInput = document.getElementById('productSearch');
     var suggestionsDiv = document.getElementById('searchSuggestions');
@@ -303,7 +302,7 @@ function updateSearchSuggestions() {
     suggestionsDiv.classList.add('show');
 }
 
-// ========== ADD MANUAL PRODUCT ==========
+
 function addManualProduct() {
     var searchInput = document.getElementById('productSearch');
     var productName = searchInput.value.trim();
@@ -313,7 +312,7 @@ function addManualProduct() {
         return;
     }
     
-    // Cari produk yang cocok
+    
     var foundProduct = null;
     for (var i = 0; i < productsData.length; i++) {
         if (productsData[i].name.toLowerCase() === productName.toLowerCase()) {
@@ -322,7 +321,7 @@ function addManualProduct() {
         }
     }
     
-    // Cari produk yang mirip (contains)
+   
     if (!foundProduct) {
         for (var i = 0; i < productsData.length; i++) {
             if (productsData[i].name.toLowerCase().includes(productName.toLowerCase())) {
@@ -336,7 +335,7 @@ function addManualProduct() {
         addToCart(foundProduct.name, foundProduct.price);
         searchInput.value = '';
     } else {
-        // Jika tidak ditemukan, minta input manual harga
+        
         var manualPrice = prompt('Product "' + productName + '" not found. Enter price for this product (Rp):');
         if (manualPrice && !isNaN(parseInt(manualPrice))) {
             var price = parseInt(manualPrice);
@@ -363,7 +362,7 @@ function addManualProduct() {
     }
 }
 
-// ========== SET CATEGORY ==========
+
 function setCategory(category) {
     currentCategory = category;
 
@@ -382,7 +381,7 @@ function setCategory(category) {
     renderProductGrid();
 }
 
-// ========== GENERATE RECEIPT ==========
+
 function generateReceipt(data) {
     var receiptDiv = document.getElementById('receiptContent');
     if (!receiptDiv) return;
@@ -410,7 +409,7 @@ function generateReceipt(data) {
     receiptDiv.innerHTML = '<div style="text-align: center;"><p><strong>STRUK PEMBAYARAN</strong></p><p>' + dateStr + '</p><p>' + timeStr + '</p><p><strong>' + data.orderNumber + '</strong></p></div><div class="receipt-divider"></div><div class="receipt-row"><span><strong>Customer:</strong></span><span>' + escapeHtml(data.customerName) + '</span></div><div class="receipt-row"><span><strong>Phone:</strong></span><span>' + escapeHtml(data.customerPhone) + '</span></div><div class="receipt-divider"></div>' + itemsHtml + '<div class="receipt-divider"></div><div class="receipt-row"><span>Subtotal</span><span>Rp ' + formatRupiah(data.subtotal) + '</span></div><div class="receipt-row"><span>Tax (10%)</span><span>Rp ' + formatRupiah(data.tax) + '</span></div>' + discountHtml + '<div class="receipt-row receipt-total"><span><strong>TOTAL</strong></span><span><strong>Rp ' + formatRupiah(data.total) + '</strong></span></div><div class="receipt-row"><span>Payment Method</span><span>' + data.paymentMethod + '</span></div>' + changeHtml;
 }
 
-// ========== PROCESS PAYMENT ==========
+
 function processPayment() {
     if (!cart || cart.length === 0) {
         showToast('Cart is empty!', 'error');
@@ -515,13 +514,13 @@ function processPayment() {
     return true;
 }
 
-// ========== CLOSE MODAL ==========
+
 function closeModal() {
     var modal = document.getElementById('receiptModal');
     if (modal) modal.classList.remove('active');
 }
 
-// ========== FORMAT FUNCTIONS ==========
+
 function formatCardNumber(value) {
     var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
     var matches = v.match(/\d{4,16}/g);
@@ -545,12 +544,12 @@ function formatExpiry(value) {
     return v;
 }
 
-// ========== EVENT LISTENERS ==========
+
 document.addEventListener('DOMContentLoaded', function() {
     renderProductGrid();
     updateCartDisplay();
     
-    // Clear cart button
+    
     var clearCartBtn = document.getElementById('clearCartBtn');
     if (clearCartBtn) {
         clearCartBtn.addEventListener('click', function() {
@@ -558,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Search input events
+    
     var searchInput = document.getElementById('productSearch');
     if (searchInput) {
         searchInput.addEventListener('input', function() {
@@ -574,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Hide suggestions when clicking outside
+       
         document.addEventListener('click', function(e) {
             var suggestions = document.getElementById('searchSuggestions');
             if (suggestions && !searchInput.contains(e.target) && !suggestions.contains(e.target)) {
@@ -583,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Add product button
+   
     var addBtn = document.getElementById('addProductBtn');
     if (addBtn) {
         addBtn.addEventListener('click', function() {
@@ -591,7 +590,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Category filter buttons
+    
     var filterBtns = document.querySelectorAll('.filter-btn');
     for (var i = 0; i < filterBtns.length; i++) {
         filterBtns[i].addEventListener('click', function() {
@@ -599,7 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Apply promo button
+   
     var applyPromoBtn = document.getElementById('applyPromoBtn');
     if (applyPromoBtn) {
         applyPromoBtn.addEventListener('click', function() {
@@ -634,7 +633,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Payment form submit
+   
     var paymentForm = document.getElementById('paymentForm');
     if (paymentForm) {
         paymentForm.addEventListener('submit', function(e) {
@@ -643,7 +642,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Payment method switch
+  
     var methodBtns = document.querySelectorAll('.method-card');
     var cardDetails = document.getElementById('cardDetails');
     var ewalletDetails = document.getElementById('ewalletDetails');
@@ -670,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Card number formatting
+  
     var cardNumber = document.getElementById('cardNumber');
     if (cardNumber) {
         cardNumber.addEventListener('input', function(e) {
@@ -678,7 +677,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Expiry date formatting
+  
     var expiryDate = document.getElementById('expiryDate');
     if (expiryDate) {
         expiryDate.addEventListener('input', function(e) {
@@ -686,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Cash amount calculation
+
     var cashAmount = document.getElementById('cashAmount');
     if (cashAmount) {
         cashAmount.addEventListener('input', function() {
@@ -711,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Close modal on outside click
+  
     window.onclick = function(event) {
         var modal = document.getElementById('receiptModal');
         if (event.target === modal) {
@@ -720,11 +719,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-// Make functions global for onclick handlers
+
 window.addToCart = addToCart;
 window.changeQty = changeQty;
 window.removeItem = removeItem;
 window.closeModal = closeModal;
 window.setCategory = setCategory;
-
-
