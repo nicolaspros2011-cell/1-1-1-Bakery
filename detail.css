@@ -1,5 +1,3 @@
-
-/* ========== ROOT VARIABLES - COKLAT DOMINAN ========== */
 :root {
     --brown-dark: #2C1F1A;
     --brown-medium: #4A3628;
@@ -13,7 +11,7 @@
 }
 
 
-/* ========== GALLERY CONTAINER ========== */
+
 .gallery-grid-section {
     padding: 8rem 0;
     background: linear-gradient(180deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
@@ -41,7 +39,7 @@
 }
 
 
-/* ========== GALLERY GRID - 24 ITEMS ========== */
+
 .gallery-grid-section .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -96,7 +94,7 @@
 }
 
 
-/* ========== GALLERY IMAGE FRAME ========== */
+
 .gallery-link {
     display: block;
     width: 100%;
@@ -121,7 +119,7 @@
 }
 
 
-/* ========== COKLAT PREMIUM OVERLAY ========== */
+
 .gallery-overlay {
     position: absolute;
     inset: 0;
@@ -143,7 +141,7 @@
 }
 
 
-/* ========== GALLERY INFO - COKLAT TEXT ========== */
+
 .gallery-info {
     background: linear-gradient(145deg,
         rgba(44,31,26,0.95),
@@ -195,7 +193,7 @@
 }
 
 
-/* ========== HERO GALLERY - COKLAT ========== */
+
 .hero-gallery {
     background: linear-gradient(rgba(44,31,26,0.95), rgba(44,31,26,0.95)),
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234A3628" width="1200" height="800"/><path fill="url(%23g)"/></svg>');
@@ -234,7 +232,7 @@
 }
 
 
-/* ========== LIGHTBOX - COKLAT PREMIUM ========== */
+
 .lightbox-container {
     position: fixed;
     top: 0;
@@ -385,7 +383,7 @@
 }
 
 
-/* ========== RESPONSIVE ========== */
+
 @media (max-width: 768px) {
     .gallery-grid-section .container {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -433,7 +431,7 @@
     }
 }
 
-/* ========== RESET & GLOBAL ========== */
+
 * {
     margin: 0;
     padding: 0;
@@ -450,7 +448,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Floating particles - lebih soft */
+
 body::before {
     content: '';
     position: fixed;
@@ -473,7 +471,7 @@ body::before {
     50% { transform: translateY(-10px) rotate(180deg); opacity: 0.9; }
 }
 
-/* Warmer Color Scheme */
+
 :root {
     --warm-brown: #4A3428;
     --wood-brown: #6B4A36;
@@ -490,7 +488,7 @@ body::before {
     padding: 0 20px;
 }
 
-/* ========== NAVBAR ========== */
+
 .navbar {
     background: rgba(254, 249, 244, 0.95);
     backdrop-filter: blur(25px);
@@ -589,7 +587,7 @@ body::before {
     transform: translateY(-1px);
 }
 
-/* ========== HERO SECTION ========== */
+
 .hero {
     background: 
         linear-gradient(rgba(74,52,40,0.78), rgba(74,52,40,0.68)),
@@ -675,7 +673,7 @@ body::before {
     box-shadow: 0 20px 40px rgba(74,52,40,0.4);
 }
 
-/* ========== FEATURES SECTION ========== */
+
 .features-section {
     padding: 6rem 2rem;
     background: var(--milk-white);
@@ -777,7 +775,7 @@ body::before {
     line-height: 1.7;
 }
 
-/* ========== INTRO STORY ========== */
+
 .intro-story {
     padding: 7rem 2rem;
     background: linear-gradient(135deg, var(--beige-soft) 0%, var(--milk-white) 100%);
@@ -824,7 +822,7 @@ body::before {
     transform: translateY(-10px);
 }
 
-/* ========== PREVIEW CARDS ========== */
+
 .preview-cards {
     padding: 6rem 2rem;
     background: var(--cream-warm);
@@ -865,7 +863,7 @@ body::before {
     margin-bottom: 1.2rem;
 }
 
-/* ========== QUOTE SECTION ========== */
+
 .quote-section {
     background: linear-gradient(135deg, var(--warm-brown), var(--wood-brown));
     color: #F5EDE2;
@@ -889,7 +887,7 @@ body::before {
     line-height: 1.4;
 }
 
-/* ========== FOOTER ========== */
+
 footer {
     background: var(--warm-brown);
     color: #E8DCCA;
@@ -938,7 +936,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ========== RESPONSIVE ========== */
+
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.8rem; }
     .intro-story .container {
@@ -958,7 +956,7 @@ footer {
     .nav-links { gap: 1.5rem; }
 }
 
-/* ========== MODERN MUSIC PLAYER POPUP ========== */
+
 .music-player-popup {
     position: fixed;
     bottom: 30px;
@@ -967,7 +965,7 @@ footer {
     font-family: 'Inter', sans-serif;
 }
 
-/* Toggle Button (collapsed state) */
+
 .music-toggle {
     background: linear-gradient(145deg, var(--warm-brown), #3D2A1F);
     backdrop-filter: blur(12px);
@@ -1030,7 +1028,7 @@ footer {
     transition: transform 0.3s ease;
 }
 
-/* Expanded Content Panel */
+
 .music-player-content {
     position: absolute;
     bottom: 80px;
@@ -1060,7 +1058,7 @@ footer {
     background: linear-gradient(145deg, var(--wood-brown), var(--warm-brown));
 }
 
-/* Player Header */
+
 .player-header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -1106,7 +1104,7 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Player Controls */
+
 .player-controls {
     display: flex;
     align-items: center;
@@ -1172,7 +1170,7 @@ footer {
     box-shadow: 0 0 5px rgba(212,176,140,0.8);
 }
 
-/* Music Status */
+
 .music-status {
     text-align: center;
     margin-bottom: 1rem;
@@ -1187,7 +1185,7 @@ footer {
     letter-spacing: 0.5px;
 }
 
-/* Close Button */
+
 .close-music-btn {
     width: 100%;
     background: rgba(255,255,255,0.1);
@@ -1204,10 +1202,10 @@ footer {
     gap: 6px;
 }
 
-/* ===== MOBILE RESPONSIVE FIX ===== */
+
 @media (max-width: 768px) {
 
-    /* NAVBAR */
+ 
     .navbar {
         padding: 1rem;
         flex-direction: column;
@@ -1220,7 +1218,7 @@ footer {
         margin-top: 10px;
     }
 
-    /* HERO */
+ 
     .about-hero {
         height: auto;
         padding: 100px 20px;
@@ -1236,7 +1234,7 @@ footer {
         padding: 12px 20px;
     }
 
-    /* STORY */
+
     .container {
         grid-template-columns: 1fr; /* dari 2 kolom jadi 1 */
         gap: 40px;
@@ -1247,7 +1245,7 @@ footer {
         height: 300px;
     }
 
-    /* EXPERIENCE */
+  
     .exp-row {
         grid-template-columns: 1fr;
         padding: 30px;
@@ -1258,19 +1256,19 @@ footer {
         direction: ltr;
     }
 
-    /* STATS */
+  
     .stats .container {
         flex-direction: column;
         gap: 2rem;
     }
 
-    /* TIMELINE */
+  
     .timeline {
         border-radius: 0;
         padding: 80px 20px;
     }
 
-    /* FOOTER */
+   
     .footer-content {
         flex-direction: column;
         text-align: center;
