@@ -1,4 +1,3 @@
-/* ========== RESET & VARIABLES ========== */
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ========== NAVBAR ========== */
+
 .navbar {
     background: rgba(254, 249, 244, 0.98);
     backdrop-filter: blur(25px);
@@ -128,7 +127,7 @@ body {
     color: var(--wood-brown);
 }
 
-/* ========== PAYMENT HERO ========== */
+
 .payment-hero {
     background: linear-gradient(135deg, rgba(74,52,40,0.9), rgba(107,74,54,0.9));
     padding: 140px 2rem 60px;
@@ -181,7 +180,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== MAIN CONTAINER ========== */
+
 .main-container {
     max-width: 1400px;
     margin: -40px auto 60px;
@@ -196,7 +195,7 @@ body {
     gap: 30px;
 }
 
-/* ========== CART SECTION ========== */
+
 .cart-section {
     background: white;
     border-radius: 32px;
@@ -249,7 +248,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Product Search Section */
+
 .product-search-section {
     margin-bottom: 20px;
     position: relative;
@@ -334,7 +333,7 @@ body {
     font-weight: 600;
 }
 
-/* Category Filters */
+
 .category-filters {
     display: flex;
     gap: 10px;
@@ -365,7 +364,7 @@ body {
     color: white;
 }
 
-/* Product Grid */
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -417,7 +416,7 @@ body {
     margin: 15px 0;
 }
 
-/* Cart Items */
+
 .cart-items-container {
     max-height: 300px;
     overflow-y: auto;
@@ -515,7 +514,7 @@ body {
     opacity: 0.5;
 }
 
-/* Cart Summary */
+
 .cart-summary {
     border-top: 2px solid var(--soft-gold);
     padding-top: 20px;
@@ -542,7 +541,7 @@ body {
     color: var(--success-green);
 }
 
-/* Promo Section */
+
 .promo-section {
     margin-top: 15px;
     padding-top: 15px;
@@ -584,7 +583,7 @@ body {
 .promo-message.success { color: var(--success-green); }
 .promo-message.error { color: var(--error-red); }
 
-/* ========== PAYMENT SECTION ========== */
+
 .payment-section {
     background: white;
     border-radius: 32px;
@@ -833,7 +832,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* Modal Receipt */
+
 .modal {
     display: none;
     position: fixed;
@@ -876,8 +875,258 @@ body {
 
 
 
+.music-player-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+    font-family: 'Inter', sans-serif;
+}
 
-/* ========== FORCE RESPONSIVE FIX - JANGAN DIHAPUS ========== */
+
+.music-toggle {
+    background: linear-gradient(145deg, #6B4A36, #4A3428);
+    backdrop-filter: blur(12px);
+    padding: 14px 20px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(212,176,140,0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.music-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border-color: #D4B08C;
+}
+
+.music-toggle.playing {
+    background: linear-gradient(145deg, #6B4A36, #4A3428);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 10px 30px rgba(212,176,140,0.3); }
+    50% { box-shadow: 0 10px 35px rgba(212,176,140,0.6); }
+}
+
+.music-icon-container {
+    position: relative;
+}
+
+.music-icon-container i {
+    font-size: 1.4rem;
+    color: #D4B08C;
+}
+
+.music-note {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.toggle-text {
+    font-weight: 600;
+    color: #FFF8F0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.expand-icon {
+    color: #D4B08C;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+
+.music-player-content {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 280px;
+    background: rgba(30, 20, 15, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    border: 1px solid rgba(212,176,140,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+.music-player-popup.expanded .music-player-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.music-player-popup.expanded .music-toggle {
+    background: linear-gradient(145deg, #6B4A36, #4A3428);
+}
+
+
+.player-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.player-wave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 1rem;
+    height: 40px;
+}
+
+.player-wave span {
+    width: 3px;
+    height: 20px;
+    background: linear-gradient(180deg, #D4B08C, #D4A373);
+    border-radius: 3px;
+    animation: waveAnim 1.2s ease-in-out infinite;
+}
+
+.player-wave span:nth-child(1) { animation-delay: 0s; height: 15px; }
+.player-wave span:nth-child(2) { animation-delay: 0.2s; height: 25px; }
+.player-wave span:nth-child(3) { animation-delay: 0.4s; height: 35px; }
+.player-wave span:nth-child(4) { animation-delay: 0.6s; height: 20px; }
+
+@keyframes waveAnim {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.5); }
+}
+
+.player-header h4 {
+    color: #FFF8F0;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.player-header p {
+    color: #D4B08C;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.play-pause-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #D4B08C, #C49A6C);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(212,176,140,0.5);
+}
+
+.play-pause-btn i {
+    font-size: 1.3rem;
+    color: #2A1F18;
+    margin-left: 2px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.volume-control i {
+    color: #D4B08C;
+    font-size: 0.9rem;
+}
+
+.volume-control input {
+    flex: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    background: rgba(212,176,140,0.3);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-control input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #D4B08C;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212,176,140,0.8);
+}
+
+
+.music-status {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 8px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+}
+
+.status-text {
+    font-size: 0.7rem;
+    color: #C4B4A0;
+    letter-spacing: 0.5px;
+}
+
+
+.close-music-btn {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(212,176,140,0.3);
+    padding: 8px;
+    border-radius: 40px;
+    color: #D4B08C;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.close-music-btn:hover {
+    background: rgba(212,176,140,0.2);
+}
+
+
+
+
 @media (max-width: 768px) {
   /* FORCE semua container jadi 1 kolom */
   .payment-wrapper {
@@ -891,7 +1140,7 @@ body {
     box-sizing: border-box !important;
   }
   
-  /* FORCE product grid 2 kolom */
+ 
   .product-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -915,7 +1164,7 @@ body {
     font-size: 11px !important;
   }
   
-  /* FORCE category filter horizontal scroll */
+
   .category-filters {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -933,14 +1182,14 @@ body {
     padding: 6px 14px !important;
   }
   
-  /* FORCE payment methods 2 kolom */
+
   .payment-methods {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
   }
   
-  /* FORCE form jadi 1 kolom */
+ 
   .form-row {
     display: block !important;
   }
@@ -950,7 +1199,7 @@ body {
     margin-bottom: 15px !important;
   }
   
-  /* FORCE input full width */
+
   .form-input, .search-input, .promo-input-group input {
     width: 100% !important;
     box-sizing: border-box !important;
@@ -958,7 +1207,7 @@ body {
     padding: 12px !important;
   }
   
-  /* FORCE search container vertikal */
+
   .search-container {
     display: flex !important;
     flex-direction: column !important;
@@ -970,7 +1219,7 @@ body {
     text-align: center !important;
   }
   
-  /* FORCE cart items */
+
   .cart-item {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -994,7 +1243,7 @@ body {
     text-align: center !important;
   }
   
-  /* FORCE promo section */
+ 
   .promo-input-group {
     display: flex !important;
     flex-direction: column !important;
@@ -1005,7 +1254,7 @@ body {
     width: 100% !important;
   }
   
-  /* FORCE nav responsive */
+
   .nav-container {
     display: flex !important;
     flex-direction: column !important;
@@ -1032,7 +1281,7 @@ body {
     font-size: 18px !important;
   }
   
-  /* FORCE hero section */
+
   .payment-hero {
     padding: 100px 15px 40px !important;
   }
@@ -1041,7 +1290,7 @@ body {
     font-size: 28px !important;
   }
   
-  /* FORCE summary row */
+
   .summary-row {
     font-size: 14px !important;
     padding: 8px 0 !important;
@@ -1051,7 +1300,7 @@ body {
     font-size: 16px !important;
   }
   
-  /* FORCE ewallet options */
+ 
   .ewallet-options {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -1063,27 +1312,27 @@ body {
     padding: 8px 12px !important;
   }
   
-  /* FORCE QRIS */
+
   .qris-code {
     width: 120px !important;
     height: 120px !important;
     margin: 0 auto 10px !important;
   }
   
-  /* FORCE modal */
+
   .modal-content {
     width: 95% !important;
     margin: 10px auto !important;
   }
   
-  /* FORCE pay button */
+ 
   .pay-button {
     width: 100% !important;
     font-size: 14px !important;
     padding: 14px !important;
   }
   
-  /* FORCE cart header */
+
   .cart-header {
     display: flex !important;
     flex-direction: column !important;
@@ -1091,13 +1340,13 @@ body {
     text-align: center !important;
   }
   
-  /* FORCE security badge */
+
   .security-badge {
     font-size: 11px !important;
   }
 }
 
-/* Ukuran HP lebih kecil */
+
 @media (max-width: 480px) {
   .product-grid {
     gap: 6px !important;
