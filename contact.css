@@ -64,20 +64,19 @@ overflow-x:hidden;
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    background: linear-gradient(135deg, var(--warm-brown), var(--wood-brown));
+    background: linear-gradient(135deg, #3E2A23, #2A201B); /* Coklat tua gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color:#000000 !important;
+    color: #2A201B !important; /* Coklat tua solid (fallback) */
 }
 
 .logo-text p {
     font-size: 0.7rem;
     font-weight: 500;
-    color: var(--wood-brown);
+    color: #3E2A23; /* Coklat tua untuk subtitle */
     letter-spacing: 2px;
 }
-
 .nav-links {
     display: flex;
     gap: 2.2rem;
